@@ -59,29 +59,45 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-surface: var(--surface);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 1rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.29 0.03 258);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.29 0.03 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.29 0.03 258);
+  --primary: oklch(0.512 0.196 259);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.353 0.128 265);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.98 0.004 248);
+  --muted-foreground: oklch(0.53 0.03 257);
+  --accent: oklch(0.775 0.157 71);
+  --accent-foreground: oklch(0.26 0.05 60);
+  --surface: oklch(0.98 0.004 248);
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --gradient-hero: linear-gradient(
+    120deg,
+    color-mix(in oklab, oklch(0.353 0.128 265) 92%, transparent),
+    color-mix(in oklab, oklch(0.512 0.196 259) 65%, transparent)
+  );
+  --gradient-cta: linear-gradient(120deg, oklch(0.353 0.128 265), oklch(0.512 0.196 259));
+  --shadow-soft: 0 1px 2px oklch(0.29 0.03 258 / 0.04), 0 14px 34px -14px oklch(0.29 0.03 258 / 0.16);
+  --shadow-lift: 0 28px 64px -26px oklch(0.512 0.196 259 / 0.38);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.921 0.005 258);
+  --input: oklch(0.921 0.005 258);
+  --ring: oklch(0.512 0.196 259);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +156,35 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility hero-overlay {
+  background-image: var(--gradient-hero);
+}
+
+@utility cta-gradient {
+  background-image: var(--gradient-cta);
+}
+
+@utility blueprint-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, white 14%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, white 14%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
