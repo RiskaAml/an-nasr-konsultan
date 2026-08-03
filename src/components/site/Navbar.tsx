@@ -1,3 +1,4 @@
+import { useRouterState } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Compass } from "lucide-react";
@@ -7,6 +8,11 @@ import { navigasi, perusahaan } from "@/data/perusahaan";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const terang = !scrolled && !open;
+  const teksNav = terang
+    ? "text-primary-foreground/80 hover:text-primary-foreground"
+    : "text-muted-foreground hover:text-primary";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -31,12 +37,16 @@ export function Navbar() {
           <span className="leading-tight">
             <span
               className={`block font-[family-name:var(--font-heading)] text-sm font-semibold ${
-                scrolled ? "text-foreground" : "text-foreground"
+                terang ? "text-primary-foreground" : "text-foreground"
               }`}
             >
               AN NASR KONSULTAN
             </span>
-            <span className="block text-[11px] tracking-wide text-muted-foreground">
+            <span
+              className={`block text-[11px] tracking-wide ${
+                terang ? "text-primary-foreground/70" : "text-muted-foreground"
+              }`}
+            >
               Konsultan Teknik &amp; Konstruksi
             </span>
           </span>
@@ -48,8 +58,8 @@ export function Navbar() {
               <Link
                 to={item.to}
                 activeOptions={{ exact: item.to === "/" }}
-                activeProps={{ className: "text-primary" }}
-                className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                activeProps={{ className: terang ? "text-accent" : "text-primary" }}
+                className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${teksNav}`}
               >
                 {item.label}
               </Link>
@@ -58,7 +68,7 @@ export function Navbar() {
         </ul>
 
         <div className="hidden lg:block">
-          <Button asChild size="pill">
+          <Button asChild size="pill" variant={terang ? "hero" : "default"}>
             <a href={`https://wa.me/${perusahaan.whatsapp}`} target="_blank" rel="noreferrer">
               Konsultasi Sekarang
             </a>
@@ -69,7 +79,11 @@ export function Navbar() {
           type="button"
           aria-label="Buka menu"
           onClick={() => setOpen((v) => !v)}
-          className="flex size-10 items-center justify-center rounded-xl border border-border bg-background text-foreground lg:hidden"
+          className={`flex size-10 items-center justify-center rounded-xl border lg:hidden ${
+            terang
+              ? "border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground"
+              : "border-border bg-background text-foreground"
+          }`}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
