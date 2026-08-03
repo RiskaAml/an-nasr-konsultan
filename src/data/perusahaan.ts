@@ -18,6 +18,10 @@ import proyekJembatan from "@/assets/proyek-jembatan.jpg";
 import proyekIrigasi from "@/assets/proyek-irigasi.jpg";
 import proyekRenovasi from "@/assets/proyek-renovasi.jpg";
 import proyekBendungan from "@/assets/proyek-bendungan.jpg";
+import layananPerencanaan from "@/assets/layanan-perencanaan.jpg";
+import layananPengawasan from "@/assets/layanan-pengawasan.jpg";
+import layananPerizinan from "@/assets/layanan-perizinan.jpg";
+import layananKonstruksi from "@/assets/layanan-konstruksi.jpg";
 
 export const perusahaan = {
   nama: "CV. AN NASR KONSULTAN",
@@ -45,6 +49,9 @@ export type Layanan = {
   ikon: LucideIcon;
   ringkas: string;
   detail: string[];
+  gambar: string;
+  alt: string;
+  galeri: { src: string; alt: string }[];
 };
 
 export const layanan: Layanan[] = [
@@ -54,6 +61,13 @@ export const layanan: Layanan[] = [
     ikon: Building2,
     ringkas:
       "Perencanaan teknis dan penyusunan desain yang matang, terukur, dan sesuai standar teknis yang berlaku.",
+    gambar: layananPerencanaan,
+    alt: "Tim teknik CV. AN NASR KONSULTAN menyusun gambar rencana bangunan di kantor",
+    galeri: [
+      { src: proyekGedung, alt: "Perencanaan bangunan gedung bertingkat" },
+      { src: proyekJembatan, alt: "Perencanaan struktur jembatan penghubung desa" },
+      { src: proyekBendungan, alt: "Perencanaan bangunan sumber daya air" },
+    ],
     detail: [
       "Perencanaan Bangunan Gedung",
       "Perencanaan Jalan",
@@ -70,6 +84,13 @@ export const layanan: Layanan[] = [
     ikon: ClipboardCheck,
     ringkas:
       "Pengendalian mutu, biaya, dan waktu pelaksanaan pekerjaan melalui pengawasan lapangan yang disiplin.",
+    gambar: layananPengawasan,
+    alt: "Pengawas lapangan memeriksa progres pekerjaan konstruksi dengan alat ukur",
+    galeri: [
+      { src: proyekJalan, alt: "Pengawasan pekerjaan jalan beton" },
+      { src: proyekIrigasi, alt: "Pengawasan rehabilitasi saluran irigasi" },
+      { src: proyekGedung, alt: "Pengawasan pembangunan gedung" },
+    ],
     detail: [
       "Pengawasan Bangunan Gedung",
       "Pengawasan Jalan",
@@ -85,6 +106,12 @@ export const layanan: Layanan[] = [
     ikon: FileCheck2,
     ringkas:
       "Pendampingan penuh pengurusan dokumen perizinan bangunan agar proyek Anda legal dan siap difungsikan.",
+    gambar: layananPerizinan,
+    alt: "Pendampingan pengurusan dokumen perizinan bangunan PBG dan SLF",
+    galeri: [
+      { src: proyekGedung, alt: "Dokumen PBG untuk bangunan gedung" },
+      { src: proyekRenovasi, alt: "Pengurusan SLF bangunan rumah tinggal" },
+    ],
     detail: ["Persetujuan Bangunan Gedung (PBG)", "Sertifikat Laik Fungsi (SLF)"],
   },
   {
@@ -93,6 +120,13 @@ export const layanan: Layanan[] = [
     ikon: HardHat,
     ringkas:
       "Pelaksanaan pekerjaan konstruksi bangunan dan infrastruktur dengan metode kerja yang aman dan efisien.",
+    gambar: layananKonstruksi,
+    alt: "Pekerja konstruksi membangun struktur bangunan dua lantai",
+    galeri: [
+      { src: proyekRenovasi, alt: "Renovasi rumah tinggal dua lantai" },
+      { src: proyekJalan, alt: "Pekerjaan jalan beton desa" },
+      { src: proyekJembatan, alt: "Pembangunan jembatan penghubung" },
+    ],
     detail: [
       "Pembangunan Rumah",
       "Renovasi Rumah",
