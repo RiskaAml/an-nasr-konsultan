@@ -1,4 +1,3 @@
-import { useRouterState } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Compass } from "lucide-react";
@@ -8,7 +7,6 @@ import { navigasi, perusahaan } from "@/data/perusahaan";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const terang = !scrolled && !open;
   const teksNav = terang
     ? "text-primary-foreground/80 hover:text-primary-foreground"
