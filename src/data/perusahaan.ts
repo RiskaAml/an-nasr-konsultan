@@ -299,4 +299,4 @@ export const navigasi = [
   { label: "Proses Kerja", to: "/proses-kerja" },
   { label: "FAQ", to: "/faq" },
   { label: "Kontak", to: "/kontak" },
-];
+] as const;
