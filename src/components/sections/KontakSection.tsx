@@ -22,7 +22,7 @@ export function KontakSection() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormPesan>({ defaultValues: { jenisLayanan: layanan[0].nama } });
+  } = useForm<FormPesan>({ defaultValues: { jenisLayanan: layanan[0]?.nama ?? "Lainnya" } });
 
   const onSubmit = handleSubmit(async (data) => {
     const teks = `Halo ${perusahaan.nama}, saya ${data.nama}.%0A%0AJenis layanan: ${data.jenisLayanan}%0ANo. HP: ${data.hp}%0AEmail: ${data.email}%0A%0A${data.pesan}`;
