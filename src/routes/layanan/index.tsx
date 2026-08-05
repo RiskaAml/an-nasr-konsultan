@@ -8,7 +8,7 @@ const judul = "Layanan — Perencanaan, Pengawasan, Perizinan & Konstruksi";
 const deskripsi =
   "Lingkup layanan CV. AN NASR KONSULTAN: perencanaan gedung, jalan, jembatan, irigasi, pengawasan proyek, PBG, SLF, hingga pelaksanaan konstruksi.";
 
-export const Route = createFileRoute("/layanan")({
+export const Route = createFileRoute("/layanan/")({
   head: () => ({
     meta: [
       { title: judul },
@@ -16,6 +16,7 @@ export const Route = createFileRoute("/layanan")({
       { property: "og:title", content: judul },
       { property: "og:description", content: deskripsi },
       { property: "og:url", content: "/layanan" },
+      { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "/layanan" }],
   }),
