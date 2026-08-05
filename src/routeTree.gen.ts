@@ -10,22 +10,28 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as FaqRouteImport } from './routes/faq'
+import { Route as KarirRouteImport } from './routes/karir'
+import { Route as KlienRouteImport } from './routes/klien'
 import { Route as KontakRouteImport } from './routes/kontak'
-import { Route as LayananRouteImport } from './routes/layanan'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
-import { Route as ProsesKerjaRouteImport } from './routes/proses-kerja'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TentangRouteImport } from './routes/tentang'
+import { Route as LayananIndexRouteImport } from './routes/layanan/index'
+import { Route as LayananSlugRouteImport } from './routes/layanan/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
+const KarirRoute = KarirRouteImport.update({
+  id: '/karir',
+  path: '/karir',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KlienRoute = KlienRouteImport.update({
+  id: '/klien',
+  path: '/klien',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontakRoute = KontakRouteImport.update({
@@ -33,19 +39,9 @@ const KontakRoute = KontakRouteImport.update({
   path: '/kontak',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LayananRoute = LayananRouteImport.update({
-  id: '/layanan',
-  path: '/layanan',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProsesKerjaRoute = ProsesKerjaRouteImport.update({
-  id: '/proses-kerja',
-  path: '/proses-kerja',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -58,80 +54,97 @@ const TentangRoute = TentangRouteImport.update({
   path: '/tentang',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LayananIndexRoute = LayananIndexRouteImport.update({
+  id: '/layanan/',
+  path: '/layanan/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LayananSlugRoute = LayananSlugRouteImport.update({
+  id: '/layanan/$slug',
+  path: '/layanan/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/faq': typeof FaqRoute
+  '/karir': typeof KarirRoute
+  '/klien': typeof KlienRoute
   '/kontak': typeof KontakRoute
-  '/layanan': typeof LayananRoute
   '/portfolio': typeof PortfolioRoute
-  '/proses-kerja': typeof ProsesKerjaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/layanan/$slug': typeof LayananSlugRoute
+  '/layanan/': typeof LayananIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/faq': typeof FaqRoute
+  '/karir': typeof KarirRoute
+  '/klien': typeof KlienRoute
   '/kontak': typeof KontakRoute
-  '/layanan': typeof LayananRoute
   '/portfolio': typeof PortfolioRoute
-  '/proses-kerja': typeof ProsesKerjaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/layanan/$slug': typeof LayananSlugRoute
+  '/layanan': typeof LayananIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/faq': typeof FaqRoute
+  '/karir': typeof KarirRoute
+  '/klien': typeof KlienRoute
   '/kontak': typeof KontakRoute
-  '/layanan': typeof LayananRoute
   '/portfolio': typeof PortfolioRoute
-  '/proses-kerja': typeof ProsesKerjaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/layanan/$slug': typeof LayananSlugRoute
+  '/layanan/': typeof LayananIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/faq'
+    | '/karir'
+    | '/klien'
     | '/kontak'
-    | '/layanan'
     | '/portfolio'
-    | '/proses-kerja'
     | '/sitemap.xml'
     | '/tentang'
+    | '/layanan/$slug'
+    | '/layanan/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/faq'
+    | '/karir'
+    | '/klien'
     | '/kontak'
-    | '/layanan'
     | '/portfolio'
-    | '/proses-kerja'
     | '/sitemap.xml'
     | '/tentang'
+    | '/layanan/$slug'
+    | '/layanan'
   id:
     | '__root__'
     | '/'
-    | '/faq'
+    | '/karir'
+    | '/klien'
     | '/kontak'
-    | '/layanan'
     | '/portfolio'
-    | '/proses-kerja'
     | '/sitemap.xml'
     | '/tentang'
+    | '/layanan/$slug'
+    | '/layanan/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  FaqRoute: typeof FaqRoute
+  KarirRoute: typeof KarirRoute
+  KlienRoute: typeof KlienRoute
   KontakRoute: typeof KontakRoute
-  LayananRoute: typeof LayananRoute
   PortfolioRoute: typeof PortfolioRoute
-  ProsesKerjaRoute: typeof ProsesKerjaRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TentangRoute: typeof TentangRoute
+  LayananSlugRoute: typeof LayananSlugRoute
+  LayananIndexRoute: typeof LayananIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -143,11 +156,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
+    '/karir': {
+      id: '/karir'
+      path: '/karir'
+      fullPath: '/karir'
+      preLoaderRoute: typeof KarirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/klien': {
+      id: '/klien'
+      path: '/klien'
+      fullPath: '/klien'
+      preLoaderRoute: typeof KlienRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontak': {
@@ -157,25 +177,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KontakRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/layanan': {
-      id: '/layanan'
-      path: '/layanan'
-      fullPath: '/layanan'
-      preLoaderRoute: typeof LayananRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
       fullPath: '/portfolio'
       preLoaderRoute: typeof PortfolioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/proses-kerja': {
-      id: '/proses-kerja'
-      path: '/proses-kerja'
-      fullPath: '/proses-kerja'
-      preLoaderRoute: typeof ProsesKerjaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -192,18 +198,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TentangRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/layanan/': {
+      id: '/layanan/'
+      path: '/layanan'
+      fullPath: '/layanan/'
+      preLoaderRoute: typeof LayananIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/layanan/$slug': {
+      id: '/layanan/$slug'
+      path: '/layanan/$slug'
+      fullPath: '/layanan/$slug'
+      preLoaderRoute: typeof LayananSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  FaqRoute: FaqRoute,
+  KarirRoute: KarirRoute,
+  KlienRoute: KlienRoute,
   KontakRoute: KontakRoute,
-  LayananRoute: LayananRoute,
   PortfolioRoute: PortfolioRoute,
-  ProsesKerjaRoute: ProsesKerjaRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TentangRoute: TentangRoute,
+  LayananSlugRoute: LayananSlugRoute,
+  LayananIndexRoute: LayananIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

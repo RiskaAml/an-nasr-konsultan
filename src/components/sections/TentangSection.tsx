@@ -1,6 +1,8 @@
-import { Compass, Flag, Gem } from "lucide-react";
+import { Compass, Flag } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import timEngineer from "@/assets/tim-engineer.jpg";
+import { founder } from "@/data/perusahaan";
+import fotoFounder from "@/assets/founder.jpg";
+import timPerusahaan from "@/assets/tim-perusahaan.jpg";
 
 const kartu = [
   {
@@ -13,78 +15,93 @@ const kartu = [
     judul: "Misi",
     teks: "Menghadirkan perencanaan yang akurat, pengawasan yang disiplin, serta pelaksanaan konstruksi yang tepat mutu, biaya, dan waktu.",
   },
-  {
-    ikon: Gem,
-    judul: "Nilai Perusahaan",
-    teks: "Amanah, profesional, transparan, dan bertanggung jawab penuh terhadap setiap pekerjaan yang dipercayakan kepada kami.",
-  },
 ];
 
 export function TentangSection() {
   return (
-    <section className="px-5 py-20 lg:px-8 lg:py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-20">
-        <Reveal arah="left">
-          <div className="relative">
-            <img
-              src={timEngineer}
-              alt="Tim engineer CV. AN NASR KONSULTAN berdiskusi di lokasi proyek"
-              loading="lazy"
-              width={1200}
-              height={1400}
-              className="w-full rounded-[2rem] object-cover shadow-[var(--shadow-lift)]"
-            />
-            <div className="absolute -bottom-6 -right-2 hidden rounded-2xl border border-border bg-background/90 px-6 py-5 shadow-[var(--shadow-soft)] backdrop-blur-md sm:block">
-              <p className="font-[family-name:var(--font-heading)] text-2xl font-semibold text-primary">
-                Jombang
-              </p>
-              <p className="text-xs text-muted-foreground">Basis operasional kami</p>
-            </div>
+    <section className="px-6 py-20 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-5xl">
+        <Reveal className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)]">
+          <img
+            src={fotoFounder}
+            alt={`${founder.nama}, ${founder.jabatan} CV. AN NASR KONSULTAN`}
+            loading="lazy"
+            width={1024}
+            height={1200}
+            className="mx-auto w-full max-w-sm rounded-[2rem] object-cover shadow-[var(--shadow-lift)]"
+          />
+          <div className="text-center lg:text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              Founder
+            </p>
+            <h2 className="mt-3 text-2xl leading-tight text-foreground sm:text-3xl">
+              {founder.nama}
+            </h2>
+            <p className="mt-1.5 text-sm font-medium text-accent-foreground">
+              <span className="rounded-full bg-accent px-3 py-1">{founder.jabatan}</span>
+            </p>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">{founder.teks}</p>
           </div>
         </Reveal>
 
-        <Reveal arah="right">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            Tentang Kami
-          </p>
-          <h2 className="mt-3 text-3xl leading-tight text-foreground sm:text-4xl">
-            Tentang CV. AN NASR KONSULTAN
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            CV. AN NASR KONSULTAN adalah penyedia jasa konsultansi teknik sipil dan arsitektur yang
-            berkedudukan di Kabupaten Jombang, Jawa Timur. Kami menangani pekerjaan perencanaan,
-            pengawasan, pengurusan perizinan bangunan, serta pelaksanaan konstruksi untuk kebutuhan
-            instansi pemerintah, lembaga, maupun perorangan.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Dengan dukungan tenaga ahli yang berpengalaman di bidang struktur, jalan, jembatan, dan
-            sumber daya air, kami berkomitmen menghadirkan solusi pembangunan yang profesional,
-            efisien, dan sesuai standar teknis yang berlaku pada setiap tahap pekerjaan.
-          </p>
+        <div className="mt-20 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <Reveal arah="left" className="text-center lg:text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              Tentang Kami
+            </p>
+            <h2 className="mt-3 text-2xl leading-tight text-foreground sm:text-3xl">
+              Tentang CV. AN NASR KONSULTAN
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              CV. AN NASR KONSULTAN adalah penyedia jasa konsultansi teknik sipil dan arsitektur
+              yang berkedudukan di Kabupaten Jombang, Jawa Timur. Kami menangani pekerjaan
+              perencanaan, pengawasan, pengurusan perizinan bangunan, serta pelaksanaan konstruksi
+              untuk instansi pemerintah, lembaga, maupun perorangan.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Tujuan kami sederhana: memastikan setiap rencana pembangunan berjalan tepat mutu,
+              tepat biaya, dan tepat waktu. Dengan dukungan tenaga ahli di bidang struktur, jalan,
+              jembatan, dan sumber daya air, kami menghadirkan solusi pembangunan yang profesional
+              dan sesuai standar teknis yang berlaku.
+            </p>
 
-          <div className="mt-10 grid gap-4">
-            {kartu.map((k, i) => {
-              const Ikon = k.ikon;
-              return (
-                <Reveal key={k.judul} delay={0.1 + i * 0.08}>
-                  <div className="flex gap-4 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/30">
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/8 text-primary">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {kartu.map((k) => {
+                const Ikon = k.ikon;
+                return (
+                  <div
+                    key={k.judul}
+                    className="rounded-2xl border border-border bg-card p-5 text-left"
+                  >
+                    <span className="flex size-10 items-center justify-center rounded-xl bg-primary/8 text-primary">
                       <Ikon className="size-5" strokeWidth={1.6} />
                     </span>
-                    <span>
-                      <span className="block font-[family-name:var(--font-heading)] text-base font-semibold text-foreground">
-                        {k.judul}
-                      </span>
-                      <span className="mt-1.5 block text-sm leading-relaxed text-muted-foreground">
-                        {k.teks}
-                      </span>
+                    <span className="mt-3 block font-[family-name:var(--font-heading)] text-base font-semibold text-foreground">
+                      {k.judul}
+                    </span>
+                    <span className="mt-1.5 block text-sm leading-relaxed text-muted-foreground">
+                      {k.teks}
                     </span>
                   </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Reveal>
+                );
+              })}
+            </div>
+          </Reveal>
+
+          <Reveal arah="right">
+            <img
+              src={timPerusahaan}
+              alt="Seluruh pegawai CV. AN NASR KONSULTAN berfoto bersama di depan kantor"
+              loading="lazy"
+              width={1400}
+              height={1000}
+              className="w-full rounded-[2rem] object-cover shadow-[var(--shadow-lift)]"
+            />
+            <p className="mt-4 text-center text-sm text-muted-foreground">
+              Tim CV. AN NASR KONSULTAN — Jombang, Jawa Timur
+            </p>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

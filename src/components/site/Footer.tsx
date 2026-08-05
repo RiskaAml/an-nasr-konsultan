@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Compass, Mail, MapPin, Phone } from "lucide-react";
-import { layanan, navigasi, perusahaan } from "@/data/perusahaan";
+import { Compass, Mail, MapPin, Phone, TrendingUp } from "lucide-react";
+import { layanan, navigasi, perusahaan, sesiMingguan } from "@/data/perusahaan";
 
 export function Footer() {
   return (
@@ -12,7 +12,7 @@ export function Footer() {
               <Compass className="size-5" />
             </span>
             <span className="font-[family-name:var(--font-heading)] text-sm font-semibold">
-              AN NASR KONSULTAN
+              CV. An Nasr Konsultan
             </span>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-primary-foreground/70">
@@ -42,8 +42,8 @@ export function Footer() {
             {layanan.map((l) => (
               <li key={l.slug}>
                 <Link
-                  to="/layanan"
-                  hash={l.slug}
+                  to="/layanan/$slug"
+                  params={{ slug: l.slug }}
                   className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
                 >
                   {l.nama}
@@ -72,11 +72,52 @@ export function Footer() {
         </div>
       </div>
 
+      <div className="mx-auto max-w-7xl px-5 pb-14 lg:px-8">
+        <SesiChart />
+      </div>
+
       <div className="border-t border-primary-foreground/10">
         <div className="mx-auto max-w-7xl px-5 py-6 text-center text-xs text-primary-foreground/60 lg:px-8">
           © {new Date().getFullYear()} {perusahaan.nama}. Seluruh hak cipta dilindungi.
         </div>
       </div>
     </footer>
+  );
+}
+function SesiChart() {
+  const nilai = sesiMingguan.map((s) => s.sesi);
+  const maks = Math.max(...nilai);
+  const total = nilai.reduce((a, b) => a + b, 0);
+
+  return (
+    <div className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-5">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+        <div className="min-w-0">
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/80">
+            <TrendingUp className="size-4 shrink-0 text-accent" />
+            Sesi Pengunjung per Minggu
+          </p>
+          <p className="mt-1 truncate text-xs text-primary-foreground/55">
+            Total {total.toLocaleString("id-ID")} sesi dalam {sesiMingguan.length} minggu terakhir
+          </p>
+        </div>
+        <span className="shrink-0 font-[family-name:var(--font-heading)] text-2xl font-semibold text-accent">
+          {nilai[nilai.length - 1]?.toLocaleString("id-ID")}
+        </span>
+      </div>
+
+      <div className="mt-5 flex h-24 items-end gap-2">
+        {sesiMingguan.map((s) => (
+          <div key={s.minggu} className="flex min-w-0 flex-1 flex-col items-center gap-2">
+            <div
+              className="w-full rounded-t-md bg-accent/80"
+              style={{ height: `${Math.max(8, (s.sesi / maks) * 100)}%` }}
+              title={`${s.minggu}: ${s.sesi} sesi`}
+            />
+            <span className="truncate text-[10px] text-primary-foreground/50">{s.minggu}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
