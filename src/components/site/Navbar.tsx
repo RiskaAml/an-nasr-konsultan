@@ -38,7 +38,7 @@ export function Navbar() {
                 terang ? "text-primary-foreground" : "text-foreground"
               }`}
             >
-              AN NASR KONSULTAN
+              CV. An Nasr Konsultan
             </span>
             <span
               className={`block text-[11px] tracking-wide ${

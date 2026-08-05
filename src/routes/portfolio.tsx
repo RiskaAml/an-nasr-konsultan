@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
-import { TestimoniSection } from "@/components/sections/TestimoniSection";
+import { KlienSection } from "@/components/sections/KlienSection";
+import { PetaSection } from "@/components/sections/PetaSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 
 const judul = "Portfolio Proyek — CV. AN NASR KONSULTAN";
@@ -31,7 +32,8 @@ function PortfolioPage() {
         teks="Setiap proyek kami dokumentasikan sebagai bukti komitmen terhadap mutu pekerjaan dan ketepatan pelaksanaan di lapangan."
       />
       <PortfolioSection />
-      <TestimoniSection />
+      <KlienSection />
+      <PetaSection />
       <CtaBanner />
     </>
   );

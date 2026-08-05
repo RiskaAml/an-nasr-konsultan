@@ -5,8 +5,8 @@ import { Reveal } from "./Reveal";
 
 export function CtaBanner() {
   return (
-    <section className="px-5 py-20 lg:px-8 lg:py-28">
-      <Reveal className="mx-auto max-w-7xl">
+    <section className="px-6 py-20 lg:px-8 lg:py-24">
+      <Reveal className="mx-auto max-w-5xl">
         <div className="cta-gradient relative overflow-hidden rounded-[2rem] px-8 py-16 text-center lg:px-16 lg:py-20">
           <div className="blueprint-grid absolute inset-0 opacity-30" aria-hidden />
           <div className="relative mx-auto max-w-3xl">

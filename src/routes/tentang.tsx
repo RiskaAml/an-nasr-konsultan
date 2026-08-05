@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { TentangSection } from "@/components/sections/TentangSection";
-import { KeunggulanSection } from "@/components/sections/KeunggulanSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 
 const judul = "Tentang Kami — CV. AN NASR KONSULTAN";
@@ -31,7 +30,6 @@ function TentangPage() {
         teks="Kami hadir untuk memastikan setiap rencana pembangunan berjalan dengan perhitungan yang matang dan pelaksanaan yang bertanggung jawab."
       />
       <TentangSection />
-      <KeunggulanSection />
       <CtaBanner />
     </>
   );

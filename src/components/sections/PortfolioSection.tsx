@@ -9,8 +9,8 @@ export function PortfolioSection({ filterAktif = true }: { filterAktif?: boolean
   const data = kategori === "Semua" ? portfolio : portfolio.filter((p) => p.kategori === kategori);
 
   return (
-    <section className="px-5 py-20 lg:px-8 lg:py-28">
-      <div className="mx-auto max-w-7xl">
+    <section className="px-6 py-20 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-5xl">
         <SectionHeading
           eyebrow="Portfolio"
           judul="Dokumentasi pekerjaan yang telah kami tangani"
@@ -36,7 +36,7 @@ export function PortfolioSection({ filterAktif = true }: { filterAktif?: boolean
           </Reveal>
         ) : null}
 
-        <div className="mt-12 columns-1 gap-6 sm:columns-2 lg:columns-3 [&>*]:mb-6">
+        <div className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
           {data.map((p, i) => (
             <Reveal key={p.nama} delay={i * 0.05} className="break-inside-avoid">
               <article className="group relative overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-[var(--shadow-soft)]">
