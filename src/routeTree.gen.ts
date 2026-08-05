@@ -10,22 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as FaqRouteImport } from './routes/faq'
 import { Route as KontakRouteImport } from './routes/kontak'
 import { Route as LayananRouteImport } from './routes/layanan'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
-import { Route as ProsesKerjaRouteImport } from './routes/proses-kerja'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TentangRouteImport } from './routes/tentang'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontakRoute = KontakRouteImport.update({
@@ -43,11 +36,6 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProsesKerjaRoute = ProsesKerjaRouteImport.update({
-  id: '/proses-kerja',
-  path: '/proses-kerja',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -61,75 +49,50 @@ const TentangRoute = TentangRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/faq': typeof FaqRoute
   '/kontak': typeof KontakRoute
   '/layanan': typeof LayananRoute
   '/portfolio': typeof PortfolioRoute
-  '/proses-kerja': typeof ProsesKerjaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/faq': typeof FaqRoute
   '/kontak': typeof KontakRoute
   '/layanan': typeof LayananRoute
   '/portfolio': typeof PortfolioRoute
-  '/proses-kerja': typeof ProsesKerjaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/faq': typeof FaqRoute
   '/kontak': typeof KontakRoute
   '/layanan': typeof LayananRoute
   '/portfolio': typeof PortfolioRoute
-  '/proses-kerja': typeof ProsesKerjaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/faq'
-    | '/kontak'
-    | '/layanan'
-    | '/portfolio'
-    | '/proses-kerja'
-    | '/sitemap.xml'
-    | '/tentang'
+    '/' | '/kontak' | '/layanan' | '/portfolio' | '/sitemap.xml' | '/tentang'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/faq'
-    | '/kontak'
-    | '/layanan'
-    | '/portfolio'
-    | '/proses-kerja'
-    | '/sitemap.xml'
-    | '/tentang'
+  to: '/' | '/kontak' | '/layanan' | '/portfolio' | '/sitemap.xml' | '/tentang'
   id:
     | '__root__'
     | '/'
-    | '/faq'
     | '/kontak'
     | '/layanan'
     | '/portfolio'
-    | '/proses-kerja'
     | '/sitemap.xml'
     | '/tentang'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  FaqRoute: typeof FaqRoute
   KontakRoute: typeof KontakRoute
   LayananRoute: typeof LayananRoute
   PortfolioRoute: typeof PortfolioRoute
-  ProsesKerjaRoute: typeof ProsesKerjaRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TentangRoute: typeof TentangRoute
 }
@@ -141,13 +104,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontak': {
@@ -171,13 +127,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/proses-kerja': {
-      id: '/proses-kerja'
-      path: '/proses-kerja'
-      fullPath: '/proses-kerja'
-      preLoaderRoute: typeof ProsesKerjaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -197,11 +146,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  FaqRoute: FaqRoute,
   KontakRoute: KontakRoute,
   LayananRoute: LayananRoute,
   PortfolioRoute: PortfolioRoute,
-  ProsesKerjaRoute: ProsesKerjaRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TentangRoute: TentangRoute,
 }
