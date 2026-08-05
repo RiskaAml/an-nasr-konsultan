@@ -1,16 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Building2,
-  ClipboardCheck,
-  FileCheck2,
-  HardHat,
-  Award,
-  Users,
-  ShieldCheck,
-  MessagesSquare,
-  Clock,
-  HeartHandshake,
-} from "lucide-react";
+import { Building2, ClipboardCheck, FileCheck2, HardHat } from "lucide-react";
 
 import proyekGedung from "@/assets/proyek-gedung.jpg";
 import proyekJalan from "@/assets/proyek-jalan.jpg";
