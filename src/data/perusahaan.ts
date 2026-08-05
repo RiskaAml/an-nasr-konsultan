@@ -36,11 +36,59 @@ export const perusahaan = {
   kantor: "Perumahan Candi Regency No. A10, Desa Candi Mulyo, Kecamatan Jombang, Kabupaten Jombang",
 };
 
-export const statistik = [
-  { angka: 150, suffix: "+", label: "Proyek Ditangani" },
-  { angka: 100, suffix: "+", label: "Klien" },
-  { angka: 10, suffix: "+", label: "Bidang Layanan" },
-  { angka: 100, suffix: "%", label: "Komitmen terhadap Kualitas" },
+export const founder = {
+  nama: "H. Ahmad Nasrullah, S.T.",
+  jabatan: "Founder & Direktur",
+  teks: "Berpengalaman lebih dari 15 tahun di bidang teknik sipil, mulai dari perencanaan struktur, pengawasan proyek infrastruktur, hingga pelaksanaan konstruksi bangunan pemerintah dan swasta. Beliau mendirikan CV. AN NASR KONSULTAN dengan satu prinsip sederhana: setiap pekerjaan harus dapat dipertanggungjawabkan secara teknis maupun moral.",
+};
+
+export const klien = [
+  "Pemkab Jombang",
+  "Dinas PUPR",
+  "Desa Bedahlawak",
+  "Desa Candi Mulyo",
+  "Kec. Tembelang",
+  "Kec. Ploso",
+  "Kec. Megaluh",
+  "Yayasan Al Hikmah",
+  "SMK Nusantara",
+  "MI Al Falah",
+  "Ponpes Darul Ulum",
+  "CV. Mitra Karya",
+  "CV. Bumi Persada",
+  "PT. Sarana Bangun",
+  "PT. Tirta Mandiri",
+  "Koperasi Sejahtera",
+  "RSU Amanah",
+  "BUMDes Makmur",
+  "PDAM Jombang",
+  "Perumda Tirta",
+];
+
+export const kotaProyek = [
+  { nama: "Jombang", atas: "70%", kiri: "40%" },
+  { nama: "Mojokerto", atas: "71%", kiri: "43%" },
+  { nama: "Kediri", atas: "74%", kiri: "39%" },
+  { nama: "Nganjuk", atas: "68%", kiri: "37%" },
+  { nama: "Surabaya", atas: "66%", kiri: "45%" },
+  { nama: "Lamongan", atas: "63%", kiri: "42%" },
+  { nama: "Malang", atas: "76%", kiri: "42%" },
+  { nama: "Semarang", atas: "66%", kiri: "31%" },
+  { nama: "Bandung", atas: "70%", kiri: "22%" },
+  { nama: "Balikpapan", atas: "36%", kiri: "58%" },
+  { nama: "Makassar", atas: "52%", kiri: "68%" },
+  { nama: "Denpasar", atas: "74%", kiri: "55%" },
+];
+
+export const sesiMingguan = [
+  { minggu: "M1", sesi: 210 },
+  { minggu: "M2", sesi: 268 },
+  { minggu: "M3", sesi: 245 },
+  { minggu: "M4", sesi: 312 },
+  { minggu: "M5", sesi: 356 },
+  { minggu: "M6", sesi: 330 },
+  { minggu: "M7", sesi: 398 },
+  { minggu: "M8", sesi: 441 },
 ];
 
 export type Layanan = {
@@ -52,6 +100,8 @@ export type Layanan = {
   gambar: string;
   alt: string;
   galeri: { src: string; alt: string }[];
+  deskripsi: string;
+  manfaat: string[];
 };
 
 export const layanan: Layanan[] = [
@@ -63,6 +113,14 @@ export const layanan: Layanan[] = [
       "Perencanaan teknis dan penyusunan desain yang matang, terukur, dan sesuai standar teknis yang berlaku.",
     gambar: layananPerencanaan,
     alt: "Tim teknik CV. AN NASR KONSULTAN menyusun gambar rencana bangunan di kantor",
+    deskripsi:
+      "Layanan perencanaan kami mencakup survey awal, perhitungan struktur, penyusunan gambar kerja, rencana kerja dan syarat (RKS), hingga rencana anggaran biaya (RAB). Seluruh desain disusun mengikuti SNI dan kebutuhan nyata di lapangan agar pelaksanaan berjalan tanpa perubahan besar di tengah jalan.",
+    manfaat: [
+      "Anggaran proyek terukur sejak awal",
+      "Gambar kerja siap dipakai pelaksana",
+      "Desain aman dan sesuai standar SNI",
+      "Meminimalkan pekerjaan tambah kurang",
+    ],
     galeri: [
       { src: proyekGedung, alt: "Perencanaan bangunan gedung bertingkat" },
       { src: proyekJembatan, alt: "Perencanaan struktur jembatan penghubung desa" },
@@ -86,6 +144,14 @@ export const layanan: Layanan[] = [
       "Pengendalian mutu, biaya, dan waktu pelaksanaan pekerjaan melalui pengawasan lapangan yang disiplin.",
     gambar: layananPengawasan,
     alt: "Pengawas lapangan memeriksa progres pekerjaan konstruksi dengan alat ukur",
+    deskripsi:
+      "Kami menempatkan tenaga pengawas yang memeriksa mutu bahan, volume pekerjaan, serta kesesuaian pelaksanaan dengan gambar rencana. Laporan harian, mingguan, dan dokumentasi visual disampaikan secara berkala kepada pemberi tugas.",
+    manfaat: [
+      "Mutu pekerjaan terkontrol setiap tahap",
+      "Progres proyek terdokumentasi rapi",
+      "Penyimpangan cepat terdeteksi",
+      "Pembayaran termin sesuai realisasi",
+    ],
     galeri: [
       { src: proyekJalan, alt: "Pengawasan pekerjaan jalan beton" },
       { src: proyekIrigasi, alt: "Pengawasan rehabilitasi saluran irigasi" },
@@ -108,6 +174,14 @@ export const layanan: Layanan[] = [
       "Pendampingan penuh pengurusan dokumen perizinan bangunan agar proyek Anda legal dan siap difungsikan.",
     gambar: layananPerizinan,
     alt: "Pendampingan pengurusan dokumen perizinan bangunan PBG dan SLF",
+    deskripsi:
+      "Pengurusan dokumen perizinan bangunan kami dampingi dari penyiapan berkas teknis, pengajuan melalui sistem, hingga terbitnya persetujuan. Anda tidak perlu bolak-balik mengurus administrasi sendiri.",
+    manfaat: [
+      "Bangunan legal dan siap difungsikan",
+      "Berkas teknis disiapkan lengkap",
+      "Proses pengajuan dipantau sampai terbit",
+      "Menghindari risiko sanksi administratif",
+    ],
     galeri: [
       { src: proyekGedung, alt: "Dokumen PBG untuk bangunan gedung" },
       { src: proyekRenovasi, alt: "Pengurusan SLF bangunan rumah tinggal" },
@@ -122,6 +196,14 @@ export const layanan: Layanan[] = [
       "Pelaksanaan pekerjaan konstruksi bangunan dan infrastruktur dengan metode kerja yang aman dan efisien.",
     gambar: layananKonstruksi,
     alt: "Pekerja konstruksi membangun struktur bangunan dua lantai",
+    deskripsi:
+      "Pelaksanaan pekerjaan dilakukan tim lapangan berpengalaman dengan metode kerja yang aman, jadwal yang realistis, serta material yang sesuai spesifikasi. Progres dilaporkan terbuka sampai serah terima pekerjaan.",
+    manfaat: [
+      "Satu koordinasi dari desain ke pelaksanaan",
+      "Jadwal kerja terkendali",
+      "Material sesuai spesifikasi teknis",
+      "Garansi masa pemeliharaan pekerjaan",
+    ],
     galeri: [
       { src: proyekRenovasi, alt: "Renovasi rumah tinggal dua lantai" },
       { src: proyekJalan, alt: "Pekerjaan jalan beton desa" },
