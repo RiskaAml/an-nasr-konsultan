@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Compass, Mail, MapPin, Phone } from "lucide-react";
-import { layanan, navigasi, perusahaan } from "@/data/perusahaan";
+import { Compass, Mail, MapPin, Phone, TrendingUp } from "lucide-react";
+import { layanan, navigasi, perusahaan, sesiMingguan } from "@/data/perusahaan";
 
 export function Footer() {
   return (
@@ -12,7 +12,7 @@ export function Footer() {
               <Compass className="size-5" />
             </span>
             <span className="font-[family-name:var(--font-heading)] text-sm font-semibold">
-              AN NASR KONSULTAN
+              CV. An Nasr Konsultan
             </span>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-primary-foreground/70">
@@ -42,8 +42,8 @@ export function Footer() {
             {layanan.map((l) => (
               <li key={l.slug}>
                 <Link
-                  to="/layanan"
-                  hash={l.slug}
+                  to="/layanan/$slug"
+                  params={{ slug: l.slug }}
                   className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
                 >
                   {l.nama}
@@ -70,6 +70,10 @@ export function Footer() {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-5 pb-14 lg:px-8">
+        <SesiChart />
       </div>
 
       <div className="border-t border-primary-foreground/10">
