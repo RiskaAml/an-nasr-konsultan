@@ -84,3 +84,40 @@ export function Footer() {
     </footer>
   );
 }
+function SesiChart() {
+  const nilai = sesiMingguan.map((s) => s.sesi);
+  const maks = Math.max(...nilai);
+  const total = nilai.reduce((a, b) => a + b, 0);
+
+  return (
+    <div className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-5">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+        <div className="min-w-0">
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/80">
+            <TrendingUp className="size-4 shrink-0 text-accent" />
+            Sesi Pengunjung per Minggu
+          </p>
+          <p className="mt-1 truncate text-xs text-primary-foreground/55">
+            Total {total.toLocaleString("id-ID")} sesi dalam {sesiMingguan.length} minggu terakhir
+          </p>
+        </div>
+        <span className="shrink-0 font-[family-name:var(--font-heading)] text-2xl font-semibold text-accent">
+          {nilai[nilai.length - 1]?.toLocaleString("id-ID")}
+        </span>
+      </div>
+
+      <div className="mt-5 flex h-24 items-end gap-2">
+        {sesiMingguan.map((s) => (
+          <div key={s.minggu} className="flex min-w-0 flex-1 flex-col items-center gap-2">
+            <div
+              className="w-full rounded-t-md bg-accent/80"
+              style={{ height: `${Math.max(8, (s.sesi / maks) * 100)}%` }}
+              title={`${s.minggu}: ${s.sesi} sesi`}
+            />
+            <span className="truncate text-[10px] text-primary-foreground/50">{s.minggu}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
