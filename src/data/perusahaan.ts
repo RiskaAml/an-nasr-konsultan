@@ -214,39 +214,6 @@ export const layanan: Layanan[] = [
   },
 ];
 
-export const keunggulan = [
-  {
-    ikon: Award,
-    judul: "Profesional",
-    teks: "Setiap pekerjaan ditangani dengan prosedur teknis yang tertib dan dokumentasi yang rapi.",
-  },
-  {
-    ikon: Users,
-    judul: "Tim Berpengalaman",
-    teks: "Didukung tenaga ahli teknik sipil dan arsitektur yang terbiasa menangani proyek pemerintah maupun swasta.",
-  },
-  {
-    ikon: ShieldCheck,
-    judul: "Standar Mutu",
-    teks: "Perencanaan dan pelaksanaan mengacu pada SNI serta spesifikasi teknis yang dipersyaratkan.",
-  },
-  {
-    ikon: MessagesSquare,
-    judul: "Komunikasi Transparan",
-    teks: "Progres, kendala, dan kebutuhan biaya dilaporkan secara terbuka kepada pemberi tugas.",
-  },
-  {
-    ikon: Clock,
-    judul: "Ketepatan Waktu",
-    teks: "Jadwal kerja disusun realistis dan dikendalikan agar pekerjaan selesai sesuai kontrak.",
-  },
-  {
-    ikon: HeartHandshake,
-    judul: "Pelayanan Terbaik",
-    teks: "Konsultasi awal hingga serah terima pekerjaan didampingi tanpa biaya tersembunyi.",
-  },
-];
-
 export const prosesKerja = [
   {
     judul: "Konsultasi",
@@ -333,75 +300,12 @@ export const portfolio = [
   },
 ];
 
-export const testimoni = [
-  {
-    nama: "Bapak Ahmad Fauzi",
-    instansi: "Pemerintah Desa Bedahlawak",
-    inisial: "AF",
-    rating: 5,
-    ulasan:
-      "Perencanaan jalan desa kami dikerjakan sangat rapi. Dokumen lengkap, pengawasan di lapangan juga rutin sehingga hasil pekerjaan sesuai dengan gambar rencana.",
-  },
-  {
-    nama: "Ibu Sri Wahyuni",
-    instansi: "Yayasan Pendidikan Al Hikmah",
-    inisial: "SW",
-    rating: 5,
-    ulasan:
-      "Proses pengurusan PBG gedung sekolah kami didampingi sampai terbit. Tim menjelaskan setiap tahapan dengan sabar dan komunikatif.",
-  },
-  {
-    nama: "Bapak Hendra Kusuma",
-    instansi: "CV. Mitra Karya Sejahtera",
-    inisial: "HK",
-    rating: 5,
-    ulasan:
-      "Pengawasan pekerjaan jembatan berjalan disiplin. Laporan mingguan selalu tepat waktu dan mutu pekerjaan benar-benar dikontrol.",
-  },
-  {
-    nama: "Bapak Muhammad Ridwan",
-    instansi: "Pemilik Proyek Rumah Tinggal",
-    inisial: "MR",
-    rating: 5,
-    ulasan:
-      "Renovasi rumah selesai sesuai jadwal dengan anggaran yang transparan. Sangat membantu dari tahap desain sampai serah terima.",
-  },
-];
-
-export const faq = [
-  {
-    tanya: "Apa saja layanan yang tersedia?",
-    jawab:
-      "Kami melayani jasa perencanaan, pengawasan, perizinan (PBG dan SLF), serta pelaksanaan konstruksi untuk bangunan gedung, jalan, jembatan, irigasi, penahan tanah, dan bendungan.",
-  },
-  {
-    tanya: "Apakah melayani proyek pemerintah?",
-    jawab:
-      "Ya. Kami berpengalaman menangani pekerjaan pemerintah desa, kecamatan, maupun dinas terkait dengan kelengkapan administrasi dan dokumen teknis sesuai ketentuan.",
-  },
-  {
-    tanya: "Apakah melayani proyek swasta?",
-    jawab:
-      "Tentu. Proyek swasta seperti rumah tinggal, ruko, kantor, sekolah, dan bangunan usaha lainnya kami tangani mulai dari perencanaan hingga pelaksanaan.",
-  },
-  {
-    tanya: "Bagaimana proses konsultasi?",
-    jawab:
-      "Konsultasi awal dapat dilakukan melalui WhatsApp, telepon, atau kunjungan ke kantor kami. Setelah kebutuhan dipahami, kami lakukan survey lapangan dan menyusun penawaran teknis serta biaya.",
-  },
-  {
-    tanya: "Apakah melayani luar Jombang?",
-    jawab:
-      "Ya. Selain Kabupaten Jombang, kami juga melayani wilayah sekitar seperti Mojokerto, Kediri, Nganjuk, Lamongan, dan kota lain di Jawa Timur.",
-  },
-];
-
 export const navigasi = [
   { label: "Beranda", to: "/" },
   { label: "Tentang Kami", to: "/tentang" },
   { label: "Layanan", to: "/layanan" },
   { label: "Portfolio", to: "/portfolio" },
-  { label: "Proses Kerja", to: "/proses-kerja" },
-  { label: "FAQ", to: "/faq" },
+  { label: "Klien Kami", to: "/klien" },
+  { label: "Karir", to: "/karir" },
   { label: "Kontak", to: "/kontak" },
 ] as const;
