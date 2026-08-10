@@ -36,8 +36,8 @@ export function TimelineAktivitas({ leadId, clientId }: { leadId?: string; clien
               pic: String(f.get("pic")),
               status: String(f.get("status")) as "Terjadwal" | "Selesai" | "Batal",
               catatan: String(f.get("catatan")),
-              leadId,
-              clientId,
+              ...(leadId ? { leadId } : {}),
+              ...(clientId ? { clientId } : {}),
             });
             setBuka(false);
           }}

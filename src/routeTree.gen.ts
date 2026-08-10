@@ -18,9 +18,11 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TentangRouteImport } from './routes/tentang'
 import { Route as CrmIndexRouteImport } from './routes/crm/index'
+import { Route as CrmLeadsRouteImport } from './routes/crm/leads'
 import { Route as CrmLoginRouteImport } from './routes/crm/login'
 import { Route as LayananIndexRouteImport } from './routes/layanan/index'
 import { Route as LayananSlugRouteImport } from './routes/layanan/$slug'
+import { Route as CrmLeadsIdRouteImport } from './routes/crm/leads.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -67,6 +69,11 @@ const CrmIndexRoute = CrmIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CrmRoute,
 } as any)
+const CrmLeadsRoute = CrmLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => CrmRoute,
+} as any)
 const CrmLoginRoute = CrmLoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -82,6 +89,11 @@ const LayananSlugRoute = LayananSlugRouteImport.update({
   path: '/layanan/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CrmLeadsIdRoute = CrmLeadsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => CrmLeadsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -92,10 +104,12 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/leads': typeof CrmLeadsRouteWithChildren
   '/crm/login': typeof CrmLoginRoute
   '/layanan/$slug': typeof LayananSlugRoute
   '/crm/': typeof CrmIndexRoute
   '/layanan/': typeof LayananIndexRoute
+  '/crm/leads/$id': typeof CrmLeadsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -105,10 +119,12 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/leads': typeof CrmLeadsRouteWithChildren
   '/crm/login': typeof CrmLoginRoute
   '/layanan/$slug': typeof LayananSlugRoute
   '/crm': typeof CrmIndexRoute
   '/layanan': typeof LayananIndexRoute
+  '/crm/leads/$id': typeof CrmLeadsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -120,10 +136,12 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/leads': typeof CrmLeadsRouteWithChildren
   '/crm/login': typeof CrmLoginRoute
   '/layanan/$slug': typeof LayananSlugRoute
   '/crm/': typeof CrmIndexRoute
   '/layanan/': typeof LayananIndexRoute
+  '/crm/leads/$id': typeof CrmLeadsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -136,10 +154,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/leads'
     | '/crm/login'
     | '/layanan/$slug'
     | '/crm/'
     | '/layanan/'
+    | '/crm/leads/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -149,10 +169,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/leads'
     | '/crm/login'
     | '/layanan/$slug'
     | '/crm'
     | '/layanan'
+    | '/crm/leads/$id'
   id:
     | '__root__'
     | '/'
@@ -163,10 +185,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/leads'
     | '/crm/login'
     | '/layanan/$slug'
     | '/crm/'
     | '/layanan/'
+    | '/crm/leads/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -247,6 +271,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CrmIndexRouteImport
       parentRoute: typeof CrmRoute
     }
+    '/crm/leads': {
+      id: '/crm/leads'
+      path: '/leads'
+      fullPath: '/crm/leads'
+      preLoaderRoute: typeof CrmLeadsRouteImport
+      parentRoute: typeof CrmRoute
+    }
     '/crm/login': {
       id: '/crm/login'
       path: '/login'
@@ -268,15 +299,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayananSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/crm/leads/$id': {
+      id: '/crm/leads/$id'
+      path: '/$id'
+      fullPath: '/crm/leads/$id'
+      preLoaderRoute: typeof CrmLeadsIdRouteImport
+      parentRoute: typeof CrmLeadsRoute
+    }
   }
 }
 
+interface CrmLeadsRouteChildren {
+  CrmLeadsIdRoute: typeof CrmLeadsIdRoute
+}
+
+const CrmLeadsRouteChildren: CrmLeadsRouteChildren = {
+  CrmLeadsIdRoute: CrmLeadsIdRoute,
+}
+
+const CrmLeadsRouteWithChildren = CrmLeadsRoute._addFileChildren(
+  CrmLeadsRouteChildren,
+)
+
 interface CrmRouteChildren {
+  CrmLeadsRoute: typeof CrmLeadsRouteWithChildren
   CrmLoginRoute: typeof CrmLoginRoute
   CrmIndexRoute: typeof CrmIndexRoute
 }
 
 const CrmRouteChildren: CrmRouteChildren = {
+  CrmLeadsRoute: CrmLeadsRouteWithChildren,
   CrmLoginRoute: CrmLoginRoute,
   CrmIndexRoute: CrmIndexRoute,
 }
