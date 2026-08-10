@@ -18,10 +18,12 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TentangRouteImport } from './routes/tentang'
 import { Route as CrmIndexRouteImport } from './routes/crm/index'
+import { Route as CrmActivitiesRouteImport } from './routes/crm/activities'
 import { Route as CrmClientsRouteImport } from './routes/crm/clients'
 import { Route as CrmLeadsRouteImport } from './routes/crm/leads'
 import { Route as CrmLoginRouteImport } from './routes/crm/login'
 import { Route as CrmProjectsRouteImport } from './routes/crm/projects'
+import { Route as CrmReportsRouteImport } from './routes/crm/reports'
 import { Route as LayananIndexRouteImport } from './routes/layanan/index'
 import { Route as LayananSlugRouteImport } from './routes/layanan/$slug'
 import { Route as CrmClientsIdRouteImport } from './routes/crm/clients.$id'
@@ -73,6 +75,11 @@ const CrmIndexRoute = CrmIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CrmRoute,
 } as any)
+const CrmActivitiesRoute = CrmActivitiesRouteImport.update({
+  id: '/activities',
+  path: '/activities',
+  getParentRoute: () => CrmRoute,
+} as any)
 const CrmClientsRoute = CrmClientsRouteImport.update({
   id: '/clients',
   path: '/clients',
@@ -91,6 +98,11 @@ const CrmLoginRoute = CrmLoginRouteImport.update({
 const CrmProjectsRoute = CrmProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => CrmRoute,
+} as any)
+const CrmReportsRoute = CrmReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
   getParentRoute: () => CrmRoute,
 } as any)
 const LayananIndexRoute = LayananIndexRouteImport.update({
@@ -128,10 +140,12 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/activities': typeof CrmActivitiesRoute
   '/crm/clients': typeof CrmClientsRouteWithChildren
   '/crm/leads': typeof CrmLeadsRouteWithChildren
   '/crm/login': typeof CrmLoginRoute
   '/crm/projects': typeof CrmProjectsRouteWithChildren
+  '/crm/reports': typeof CrmReportsRoute
   '/layanan/$slug': typeof LayananSlugRoute
   '/crm/': typeof CrmIndexRoute
   '/layanan/': typeof LayananIndexRoute
@@ -147,10 +161,12 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/activities': typeof CrmActivitiesRoute
   '/crm/clients': typeof CrmClientsRouteWithChildren
   '/crm/leads': typeof CrmLeadsRouteWithChildren
   '/crm/login': typeof CrmLoginRoute
   '/crm/projects': typeof CrmProjectsRouteWithChildren
+  '/crm/reports': typeof CrmReportsRoute
   '/layanan/$slug': typeof LayananSlugRoute
   '/crm': typeof CrmIndexRoute
   '/layanan': typeof LayananIndexRoute
@@ -168,10 +184,12 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/activities': typeof CrmActivitiesRoute
   '/crm/clients': typeof CrmClientsRouteWithChildren
   '/crm/leads': typeof CrmLeadsRouteWithChildren
   '/crm/login': typeof CrmLoginRoute
   '/crm/projects': typeof CrmProjectsRouteWithChildren
+  '/crm/reports': typeof CrmReportsRoute
   '/layanan/$slug': typeof LayananSlugRoute
   '/crm/': typeof CrmIndexRoute
   '/layanan/': typeof LayananIndexRoute
@@ -190,10 +208,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/activities'
     | '/crm/clients'
     | '/crm/leads'
     | '/crm/login'
     | '/crm/projects'
+    | '/crm/reports'
     | '/layanan/$slug'
     | '/crm/'
     | '/layanan/'
@@ -209,10 +229,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/activities'
     | '/crm/clients'
     | '/crm/leads'
     | '/crm/login'
     | '/crm/projects'
+    | '/crm/reports'
     | '/layanan/$slug'
     | '/crm'
     | '/layanan'
@@ -229,10 +251,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/activities'
     | '/crm/clients'
     | '/crm/leads'
     | '/crm/login'
     | '/crm/projects'
+    | '/crm/reports'
     | '/layanan/$slug'
     | '/crm/'
     | '/layanan/'
@@ -319,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CrmIndexRouteImport
       parentRoute: typeof CrmRoute
     }
+    '/crm/activities': {
+      id: '/crm/activities'
+      path: '/activities'
+      fullPath: '/crm/activities'
+      preLoaderRoute: typeof CrmActivitiesRouteImport
+      parentRoute: typeof CrmRoute
+    }
     '/crm/clients': {
       id: '/crm/clients'
       path: '/clients'
@@ -345,6 +376,13 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/crm/projects'
       preLoaderRoute: typeof CrmProjectsRouteImport
+      parentRoute: typeof CrmRoute
+    }
+    '/crm/reports': {
+      id: '/crm/reports'
+      path: '/reports'
+      fullPath: '/crm/reports'
+      preLoaderRoute: typeof CrmReportsRouteImport
       parentRoute: typeof CrmRoute
     }
     '/layanan/': {
@@ -422,18 +460,22 @@ const CrmProjectsRouteWithChildren = CrmProjectsRoute._addFileChildren(
 )
 
 interface CrmRouteChildren {
+  CrmActivitiesRoute: typeof CrmActivitiesRoute
   CrmClientsRoute: typeof CrmClientsRouteWithChildren
   CrmLeadsRoute: typeof CrmLeadsRouteWithChildren
   CrmLoginRoute: typeof CrmLoginRoute
   CrmProjectsRoute: typeof CrmProjectsRouteWithChildren
+  CrmReportsRoute: typeof CrmReportsRoute
   CrmIndexRoute: typeof CrmIndexRoute
 }
 
 const CrmRouteChildren: CrmRouteChildren = {
+  CrmActivitiesRoute: CrmActivitiesRoute,
   CrmClientsRoute: CrmClientsRouteWithChildren,
   CrmLeadsRoute: CrmLeadsRouteWithChildren,
   CrmLoginRoute: CrmLoginRoute,
   CrmProjectsRoute: CrmProjectsRouteWithChildren,
+  CrmReportsRoute: CrmReportsRoute,
   CrmIndexRoute: CrmIndexRoute,
 }
 
