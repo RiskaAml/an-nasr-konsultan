@@ -10,18 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CrmRouteImport } from './routes/crm'
 import { Route as KarirRouteImport } from './routes/karir'
 import { Route as KlienRouteImport } from './routes/klien'
 import { Route as KontakRouteImport } from './routes/kontak'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TentangRouteImport } from './routes/tentang'
+import { Route as CrmIndexRouteImport } from './routes/crm/index'
+import { Route as CrmLoginRouteImport } from './routes/crm/login'
 import { Route as LayananIndexRouteImport } from './routes/layanan/index'
 import { Route as LayananSlugRouteImport } from './routes/layanan/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrmRoute = CrmRouteImport.update({
+  id: '/crm',
+  path: '/crm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KarirRoute = KarirRouteImport.update({
@@ -54,6 +62,16 @@ const TentangRoute = TentangRouteImport.update({
   path: '/tentang',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CrmIndexRoute = CrmIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CrmRoute,
+} as any)
+const CrmLoginRoute = CrmLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => CrmRoute,
+} as any)
 const LayananIndexRoute = LayananIndexRouteImport.update({
   id: '/layanan/',
   path: '/layanan/',
@@ -67,13 +85,16 @@ const LayananSlugRoute = LayananSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/crm': typeof CrmRouteWithChildren
   '/karir': typeof KarirRoute
   '/klien': typeof KlienRoute
   '/kontak': typeof KontakRoute
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/login': typeof CrmLoginRoute
   '/layanan/$slug': typeof LayananSlugRoute
+  '/crm/': typeof CrmIndexRoute
   '/layanan/': typeof LayananIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,32 +105,40 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/login': typeof CrmLoginRoute
   '/layanan/$slug': typeof LayananSlugRoute
+  '/crm': typeof CrmIndexRoute
   '/layanan': typeof LayananIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/crm': typeof CrmRouteWithChildren
   '/karir': typeof KarirRoute
   '/klien': typeof KlienRoute
   '/kontak': typeof KontakRoute
   '/portfolio': typeof PortfolioRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
+  '/crm/login': typeof CrmLoginRoute
   '/layanan/$slug': typeof LayananSlugRoute
+  '/crm/': typeof CrmIndexRoute
   '/layanan/': typeof LayananIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/crm'
     | '/karir'
     | '/klien'
     | '/kontak'
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/login'
     | '/layanan/$slug'
+    | '/crm/'
     | '/layanan/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -120,23 +149,29 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/login'
     | '/layanan/$slug'
+    | '/crm'
     | '/layanan'
   id:
     | '__root__'
     | '/'
+    | '/crm'
     | '/karir'
     | '/klien'
     | '/kontak'
     | '/portfolio'
     | '/sitemap.xml'
     | '/tentang'
+    | '/crm/login'
     | '/layanan/$slug'
+    | '/crm/'
     | '/layanan/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CrmRoute: typeof CrmRouteWithChildren
   KarirRoute: typeof KarirRoute
   KlienRoute: typeof KlienRoute
   KontakRoute: typeof KontakRoute
@@ -154,6 +189,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crm': {
+      id: '/crm'
+      path: '/crm'
+      fullPath: '/crm'
+      preLoaderRoute: typeof CrmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/karir': {
@@ -198,6 +240,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TentangRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/crm/': {
+      id: '/crm/'
+      path: '/'
+      fullPath: '/crm/'
+      preLoaderRoute: typeof CrmIndexRouteImport
+      parentRoute: typeof CrmRoute
+    }
+    '/crm/login': {
+      id: '/crm/login'
+      path: '/login'
+      fullPath: '/crm/login'
+      preLoaderRoute: typeof CrmLoginRouteImport
+      parentRoute: typeof CrmRoute
+    }
     '/layanan/': {
       id: '/layanan/'
       path: '/layanan'
@@ -215,8 +271,21 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface CrmRouteChildren {
+  CrmLoginRoute: typeof CrmLoginRoute
+  CrmIndexRoute: typeof CrmIndexRoute
+}
+
+const CrmRouteChildren: CrmRouteChildren = {
+  CrmLoginRoute: CrmLoginRoute,
+  CrmIndexRoute: CrmIndexRoute,
+}
+
+const CrmRouteWithChildren = CrmRoute._addFileChildren(CrmRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CrmRoute: CrmRouteWithChildren,
   KarirRoute: KarirRoute,
   KlienRoute: KlienRoute,
   KontakRoute: KontakRoute,
@@ -229,13 +298,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
