@@ -74,23 +74,23 @@
   --card-foreground: oklch(0.29 0.03 258);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.29 0.03 258);
-  --primary: oklch(0.512 0.196 259);
+  --primary: oklch(0.38 0.115 256);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.353 0.128 265);
+  --secondary: oklch(0.26 0.075 258);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.98 0.004 248);
+  --muted: oklch(0.975 0.005 80);
   --muted-foreground: oklch(0.53 0.03 257);
-  --accent: oklch(0.79 0.213 131);
-  --accent-foreground: oklch(0.27 0.07 131);
-  --surface: oklch(0.98 0.004 248);
+  --accent: oklch(0.68 0.185 47);
+  --accent-foreground: oklch(1 0 0);
+  --surface: oklch(0.972 0.008 75);
   --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
   --gradient-hero: linear-gradient(
     120deg,
-    color-mix(in oklab, oklch(0.353 0.128 265) 92%, transparent),
-    color-mix(in oklab, oklch(0.512 0.196 259) 65%, transparent)
+    color-mix(in oklab, oklch(0.26 0.075 258) 92%, transparent),
+    color-mix(in oklab, oklch(0.38 0.115 256) 62%, transparent)
   );
-  --gradient-cta: linear-gradient(120deg, oklch(0.353 0.128 265), oklch(0.512 0.196 259));
+  --gradient-cta: linear-gradient(120deg, oklch(0.26 0.075 258), oklch(0.4 0.12 256));
   --shadow-soft: 0 1px 2px oklch(0.29 0.03 258 / 0.04), 0 14px 34px -14px oklch(0.29 0.03 258 / 0.16);
   --shadow-lift: 0 28px 64px -26px oklch(0.512 0.196 259 / 0.38);
   --destructive: oklch(0.577 0.245 27.325);
