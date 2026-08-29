@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArtikelRouteImport } from './routes/artikel'
 import { Route as CrmRouteImport } from './routes/crm'
 import { Route as KarirRouteImport } from './routes/karir'
 import { Route as KlienRouteImport } from './routes/klien'
@@ -33,6 +34,11 @@ import { Route as CrmProjectsIdRouteImport } from './routes/crm/projects.$id'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArtikelRoute = ArtikelRouteImport.update({
+  id: '/artikel',
+  path: '/artikel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CrmRoute = CrmRouteImport.update({
@@ -133,6 +139,7 @@ const CrmProjectsIdRoute = CrmProjectsIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/artikel': typeof ArtikelRoute
   '/crm': typeof CrmRouteWithChildren
   '/karir': typeof KarirRoute
   '/klien': typeof KlienRoute
@@ -155,6 +162,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/artikel': typeof ArtikelRoute
   '/karir': typeof KarirRoute
   '/klien': typeof KlienRoute
   '/kontak': typeof KontakRoute
@@ -177,6 +185,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/artikel': typeof ArtikelRoute
   '/crm': typeof CrmRouteWithChildren
   '/karir': typeof KarirRoute
   '/klien': typeof KlienRoute
@@ -201,6 +210,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/artikel'
     | '/crm'
     | '/karir'
     | '/klien'
@@ -223,6 +233,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/artikel'
     | '/karir'
     | '/klien'
     | '/kontak'
@@ -244,6 +255,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/artikel'
     | '/crm'
     | '/karir'
     | '/klien'
@@ -267,6 +279,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArtikelRoute: typeof ArtikelRoute
   CrmRoute: typeof CrmRouteWithChildren
   KarirRoute: typeof KarirRoute
   KlienRoute: typeof KlienRoute
@@ -285,6 +298,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/artikel': {
+      id: '/artikel'
+      path: '/artikel'
+      fullPath: '/artikel'
+      preLoaderRoute: typeof ArtikelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crm': {
@@ -483,6 +503,7 @@ const CrmRouteWithChildren = CrmRoute._addFileChildren(CrmRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArtikelRoute: ArtikelRoute,
   CrmRoute: CrmRouteWithChildren,
   KarirRoute: KarirRoute,
   KlienRoute: KlienRoute,
