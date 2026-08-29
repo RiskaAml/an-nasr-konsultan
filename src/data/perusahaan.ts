@@ -55,18 +55,18 @@ export const klien = [
 ];
 
 export const kotaProyek = [
-  { nama: "Jombang", atas: "70%", kiri: "40%" },
-  { nama: "Mojokerto", atas: "71%", kiri: "43%" },
-  { nama: "Kediri", atas: "74%", kiri: "39%" },
-  { nama: "Nganjuk", atas: "68%", kiri: "37%" },
-  { nama: "Surabaya", atas: "66%", kiri: "45%" },
-  { nama: "Lamongan", atas: "63%", kiri: "42%" },
-  { nama: "Malang", atas: "76%", kiri: "42%" },
-  { nama: "Semarang", atas: "66%", kiri: "31%" },
-  { nama: "Bandung", atas: "70%", kiri: "22%" },
-  { nama: "Balikpapan", atas: "36%", kiri: "58%" },
-  { nama: "Makassar", atas: "52%", kiri: "68%" },
-  { nama: "Denpasar", atas: "74%", kiri: "55%" },
+  { nama: "Jombang", atas: "76%", kiri: "36.5%" },
+  { nama: "Mojokerto", atas: "75%", kiri: "37.6%" },
+  { nama: "Kediri", atas: "78%", kiri: "35.8%" },
+  { nama: "Nganjuk", atas: "76%", kiri: "35%" },
+  { nama: "Surabaya", atas: "73.5%", kiri: "38.4%" },
+  { nama: "Lamongan", atas: "73%", kiri: "37%" },
+  { nama: "Malang", atas: "79.5%", kiri: "37%" },
+  { nama: "Semarang", atas: "73%", kiri: "31%" },
+  { nama: "Bandung", atas: "76%", kiri: "24%" },
+  { nama: "Balikpapan", atas: "47%", kiri: "44%" },
+  { nama: "Makassar", atas: "60%", kiri: "50%" },
+  { nama: "Denpasar", atas: "83%", kiri: "44%" },
 ];
 
 export const sesiMingguan = [
@@ -298,14 +298,74 @@ export const portfolio = [
     gambar: proyekBendungan,
     tinggi: "short",
   },
+  {
+    nama: "Pembangunan Gedung Sekolah Dua Lantai",
+    lokasi: "Kecamatan Diwek, Jombang",
+    kategori: "Gedung",
+    gambar: proyekGedung,
+    tinggi: "short",
+  },
+  {
+    nama: "Peningkatan Jalan Lingkungan Perumahan",
+    lokasi: "Kecamatan Peterongan, Jombang",
+    kategori: "Jalan",
+    gambar: proyekJalan,
+    tinggi: "short",
+  },
+  {
+    nama: "Normalisasi Saluran Irigasi Sekunder",
+    lokasi: "Kecamatan Kesamben, Jombang",
+    kategori: "Irigasi",
+    gambar: proyekIrigasi,
+    tinggi: "short",
+  },
 ];
 
 export const navigasi = [
   { label: "Beranda", to: "/" },
-  { label: "Tentang Kami", to: "/tentang" },
   { label: "Layanan", to: "/layanan" },
-  { label: "Portfolio", to: "/portfolio" },
-  { label: "Klien Kami", to: "/klien" },
+  { label: "Proyek", to: "/portfolio" },
+  { label: "Tentang Kami", to: "/tentang" },
+  { label: "Artikel", to: "/artikel" },
   { label: "Karir", to: "/karir" },
-  { label: "Kontak", to: "/kontak" },
+  { label: "Hubungi Kami", to: "/kontak" },
 ] as const;
+
+export const artikel = [
+  {
+    slug: "memahami-pbg-dan-slf",
+    judul: "Memahami PBG dan SLF: Dua Dokumen Wajib Bangunan Anda",
+    ringkas:
+      "Persetujuan Bangunan Gedung diurus sebelum membangun, Sertifikat Laik Fungsi setelah bangunan berdiri. Keduanya menentukan legalitas bangunan.",
+    tanggal: "12 Agustus 2026",
+    kategori: "Perizinan",
+    gambar: layananPerizinan,
+  },
+  {
+    slug: "menyusun-rab-yang-realistis",
+    judul: "Menyusun RAB yang Realistis agar Proyek Tidak Membengkak",
+    ringkas:
+      "Rencana anggaran biaya yang disusun dari analisa harga satuan dan volume terukur menekan risiko pekerjaan tambah kurang di lapangan.",
+    tanggal: "29 Juli 2026",
+    kategori: "Perencanaan",
+    gambar: layananPerencanaan,
+  },
+  {
+    slug: "peran-pengawas-lapangan",
+    judul: "Peran Pengawas Lapangan dalam Menjaga Mutu Pekerjaan",
+    ringkas:
+      "Pengawas memastikan mutu bahan, volume, dan metode kerja sesuai gambar rencana, serta mendokumentasikan progres secara berkala.",
+    tanggal: "10 Juli 2026",
+    kategori: "Pengawasan",
+    gambar: layananPengawasan,
+  },
+  {
+    slug: "memilih-struktur-jalan-desa",
+    judul: "Jalan Beton atau Jalan Aspal untuk Ruas Desa?",
+    ringkas:
+      "Pemilihan perkerasan bergantung pada beban lalu lintas, kondisi tanah dasar, dan kemampuan pemeliharaan jangka panjang.",
+    tanggal: "24 Juni 2026",
+    kategori: "Konstruksi",
+    gambar: layananKonstruksi,
+  },
+];
