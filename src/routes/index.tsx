@@ -1,13 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { Hero } from "@/components/sections/Hero";
-import { TentangSection } from "@/components/sections/TentangSection";
+import { FounderSection } from "@/components/sections/FounderSection";
 import { LayananSection } from "@/components/sections/LayananSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { KlienSection } from "@/components/sections/KlienSection";
 import { PetaSection } from "@/components/sections/PetaSection";
-import { ProsesSection } from "@/components/sections/ProsesSection";
-import { RekrutmenSection } from "@/components/sections/RekrutmenSection";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 
 const judul = "CV. AN NASR KONSULTAN — Konsultan Teknik Sipil & Konstruksi Jombang";
@@ -33,13 +32,12 @@ function Index() {
   return (
     <>
       <Hero />
-      <TentangSection />
+      <FounderSection />
       <LayananSection />
       <PortfolioSection />
       <KlienSection />
       <PetaSection />
-      <ProsesSection />
-      <RekrutmenSection />
+      <FaqSection />
       <CtaBanner />
     </>
   );
