@@ -1,42 +1,33 @@
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { klien } from "@/data/perusahaan";
+import { SectionShell } from "@/components/site/SectionShell";
+
+const baris = [10, 10, 10];
+
+function Frame() {
+  return (
+    <li
+      aria-hidden
+      className="aspect-[3/2] w-40 shrink-0 rounded-lg border border-border bg-card shadow-[var(--shadow-soft)] sm:w-48"
+    />
+  );
+}
 
 export function KlienSection() {
-  const baris = [...klien, ...klien];
-
   return (
-    <section className="bg-surface px-6 py-16 lg:px-8 lg:py-20">
-      <div className="mx-auto max-w-5xl">
-        <SectionHeading
-          eyebrow="Klien Kami"
-          judul="Dipercaya instansi, lembaga, dan mitra usaha"
-          deskripsi="Sebagian pemberi tugas yang pernah bekerja sama dengan CV. AN NASR KONSULTAN."
-        />
+    <SectionShell tone="krem" judul={"Dipercaya oleh\nBerbagai Klien"}>
+      <div className="marquee-mask space-y-5 overflow-hidden">
+        {baris.map((jumlah, i) => (
+          <ul
+            key={i}
+            className={`flex w-max items-center gap-5 ${
+              i === 1 ? "marquee-track-rev" : i === 2 ? "marquee-track-slow" : "marquee-track"
+            }`}
+          >
+            {Array.from({ length: jumlah * 2 }).map((_, j) => (
+              <Frame key={j} />
+            ))}
+          </ul>
+        ))}
       </div>
-
-      <div className="marquee-mask mt-10 overflow-hidden">
-        <ul className="marquee-track flex w-max items-center gap-3">
-          {baris.map((nama, i) => (
-            <li
-              key={`${nama}-${i}`}
-              className="flex shrink-0 items-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 shadow-[var(--shadow-soft)]"
-            >
-              <span className="flex size-7 items-center justify-center rounded-lg bg-primary/10 text-[10px] font-semibold text-primary">
-                {nama
-                  .replace(/[^A-Za-z ]/g, "")
-                  .split(" ")
-                  .filter(Boolean)
-                  .slice(0, 2)
-                  .map((w) => w[0])
-                  .join("")}
-              </span>
-              <span className="whitespace-nowrap text-xs font-medium text-foreground/80">
-                {nama}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    </SectionShell>
   );
 }
