@@ -6,5 +6,5 @@
 - [x] Hero, Founder, Layanan, Proyek, Klien, Peta
 - [x] Hapus Proses Kerja & Recruitment dari beranda
 - [x] CTA marmer + Footer baru
-- [ ] Section FAQ di beranda
-- [ ] Pagination geser kiri/kanan + nomor halaman di section proyek
+- [x] Section FAQ di beranda
+- [x] Pagination geser kiri/kanan + nomor halaman di section proyek
