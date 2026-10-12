@@ -96,8 +96,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "CV. AN NASR KONSULTAN — Konsultan Teknik Sipil Jombang" },
       { property: "og:description", content: "Jasa perencanaan, pengawasan, perizinan, dan konstruksi di Kabupaten Jombang, Jawa Timur." },
       { name: "twitter:description", content: "Jasa perencanaan, pengawasan, perizinan, dan konstruksi di Kabupaten Jombang, Jawa Timur." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2561521e-ef02-45f4-b832-8658fb5b57e4/id-preview-6a57bcc5--6b00f1a3-9dd1-4b23-a9e0-e6a5fc084f0e.lovable.app-1785741244179.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2561521e-ef02-45f4-b832-8658fb5b57e4/id-preview-6a57bcc5--6b00f1a3-9dd1-4b23-a9e0-e6a5fc084f0e.lovable.app-1785741244179.png" },
     ],
     links: [
       {
@@ -108,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
