@@ -36,7 +36,7 @@ function Artikel() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {artikel.map((a, i) => (
               <Reveal key={a.slug} delay={i * 0.06} className="h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)]">
+                <article className="service-card flex h-full flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-soft)]">
                   <img
                     src={a.gambar}
                     alt={a.judul}
@@ -45,8 +45,8 @@ function Artikel() {
                     height={800}
                     className="aspect-[16/10] w-full object-cover"
                   />
-                  <div className="flex flex-1 flex-col p-6">
-                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <div className="batik-card service-card-body flex flex-1 flex-col p-6">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-ink">
                       {a.kategori}
                     </span>
                     <h2 className="mt-3 text-lg leading-snug text-foreground">{a.judul}</h2>

@@ -55,7 +55,7 @@ export function CrmShell({
   const aktif = (to: string, exact: boolean) => (exact ? path === to : path.startsWith(to));
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="crm-shell min-h-screen bg-surface">
       <aside
         className={`fixed inset-y-0 left-0 z-50 w-64 -translate-x-full border-r border-border bg-secondary text-primary-foreground transition-transform lg:translate-x-0 ${
           buka ? "translate-x-0" : ""
@@ -168,7 +168,7 @@ export function KartuStat({
   ikon?: typeof Users;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
+    <div className="batik-card rounded-lg border border-border bg-card p-5 shadow-[var(--shadow-soft)]">
       <div className="flex items-start justify-between gap-3">
         <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</p>
         {Ikon ? <Ikon className="size-4 text-primary" /> : null}

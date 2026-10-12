@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { layanan } from "@/data/perusahaan";
+import { BatikDivider } from "@/components/site/Batik";
 
 export const Route = createFileRoute("/layanan/$slug")({
   loader: ({ params }) => {
@@ -24,6 +25,7 @@ export const Route = createFileRoute("/layanan/$slug")({
         { property: "og:title", content: judul },
         { property: "og:description", content: deskripsi },
         { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
     };
   },
@@ -32,7 +34,8 @@ export const Route = createFileRoute("/layanan/$slug")({
 
 function DetailLayanan() {
   const { slug } = Route.useLoaderData();
-  const item = layanan.find((l) => l.slug === slug)!;
+  const item = layanan.find((l) => l.slug === slug);
+  if (!item) throw notFound();
   const galeri = [{ src: item.gambar, alt: item.alt }, ...item.galeri];
 
   return (
@@ -41,20 +44,21 @@ function DetailLayanan() {
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Layanan</p>
           <h1 className="mt-3 text-3xl leading-tight text-foreground sm:text-4xl">{item.nama}</h1>
+          <BatikDivider className="mx-auto mt-5" />
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
             {item.ringkas}
           </p>
 
           <div className="mt-10 grid gap-3 sm:grid-cols-2">
             {galeri.map((g, i) => (
-              <Reveal key={g.alt} delay={i * 0.05} className={i === 0 ? "sm:col-span-2" : ""}>
+              <Reveal key={g.alt} delay={i * 0.05} className={`batik-media-frame ${i === 0 ? "sm:col-span-2" : ""}`}>
                 <img
                   src={g.src}
                   alt={g.alt}
                   loading={i === 0 ? "eager" : "lazy"}
                   width={1200}
                   height={800}
-                  className={`w-full rounded-[1.5rem] border border-border object-cover shadow-[var(--shadow-soft)] ${
+                  className={`w-full object-cover ${
                     i === 0 ? "aspect-[16/7]" : "aspect-[4/3]"
                   }`}
                 />
@@ -74,7 +78,7 @@ function DetailLayanan() {
             {item.manfaat.map((m) => (
               <li
                 key={m}
-                className="flex items-start gap-2.5 rounded-2xl border border-border bg-card p-4 text-sm text-foreground/85"
+                className="batik-card flex items-start gap-2.5 border border-border bg-card p-5 pr-10 text-sm text-foreground/85"
               >
                 <Sparkles className="mt-0.5 size-4 shrink-0 text-accent" />
                 <span>{m}</span>

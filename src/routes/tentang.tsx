@@ -14,6 +14,8 @@ export const Route = createFileRoute("/tentang")({
       { name: "description", content: deskripsi },
       { property: "og:title", content: judul },
       { property: "og:description", content: deskripsi },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/tentang" },
     ],
     links: [{ rel: "canonical", href: "/tentang" }],

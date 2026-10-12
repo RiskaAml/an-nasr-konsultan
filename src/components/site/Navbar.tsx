@@ -21,7 +21,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`site-navbar fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "border-b border-border bg-background/85 py-2 shadow-[var(--shadow-soft)] backdrop-blur-xl"
           : "border-b border-transparent py-4"
@@ -73,8 +73,9 @@ export function Navbar() {
           </Button>
         </div>
 
-        <button
+        <Button
           type="button"
+          variant="ghost"
           aria-label="Buka menu"
           onClick={() => setOpen((v) => !v)}
           className={`flex size-10 items-center justify-center rounded-xl border lg:hidden ${
@@ -84,7 +85,7 @@ export function Navbar() {
           }`}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        </Button>
       </nav>
 
       {open ? (

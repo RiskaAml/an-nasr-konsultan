@@ -45,6 +45,7 @@ export const Route = createFileRoute("/karir")({
       { property: "og:description", content: deskripsi },
       { property: "og:url", content: "/karir" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/karir" }],
   }),
@@ -64,7 +65,7 @@ function KarirPage() {
           <div className="grid gap-4 sm:grid-cols-2">
             {posisi.map((p, i) => (
               <Reveal key={p.nama} delay={i * 0.06} className="h-full">
-                <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 text-center shadow-[var(--shadow-soft)]">
+                <article className="batik-card flex h-full flex-col border border-border bg-card p-6 text-center shadow-[var(--shadow-soft)]">
                   <span className="mx-auto flex size-10 items-center justify-center rounded-xl bg-primary/8 text-primary">
                     <Briefcase className="size-5" strokeWidth={1.6} />
                   </span>

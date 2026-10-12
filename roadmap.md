@@ -8,3 +8,5 @@
 - [x] CTA marmer + Footer baru
 - [x] Section FAQ di beranda
 - [x] Pagination geser kiri/kanan + nomor halaman di section proyek
+- [ ] Apply visible batik identity, distinctive frames, and richer palette across existing UI
+- [ ] Verify existing interactions and readable desktop/mobile layouts

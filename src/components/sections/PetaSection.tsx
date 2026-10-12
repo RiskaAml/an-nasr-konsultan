@@ -7,7 +7,7 @@ export function PetaSection() {
   return (
     <SectionShell tone="terang" judul={"Jejak An Nasr di\nBerbagai Wilayah"}>
       <Reveal className="relative w-full">
-        <div className="relative overflow-hidden rounded-xl border border-border bg-surface">
+        <div className="batik-media-frame relative overflow-hidden border border-border bg-surface">
           <img
             src={petaIndonesia}
             alt="Peta Indonesia dengan sebaran lokasi proyek CV. AN NASR KONSULTAN"

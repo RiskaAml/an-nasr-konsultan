@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep ornamental UI in the shared Batik artwork component and semantic CSS frame classes; this preserves photographs and gives every page a consistent lightweight visual identity.

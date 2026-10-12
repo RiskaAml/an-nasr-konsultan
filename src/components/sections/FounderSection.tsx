@@ -23,18 +23,18 @@ export function FounderSection() {
       }
     >
       <div className="grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)]">
-        <Reveal arah="left">
+        <Reveal arah="left" className="founder-photo-frame batik-media-frame">
           <img
             src={fotoFounder}
             alt={`${founder.nama}, ${founder.jabatan} CV. AN NASR KONSULTAN`}
             loading="lazy"
             width={900}
             height={1100}
-            className="h-full max-h-[26rem] w-full rounded-xl object-cover"
+            className="h-full max-h-[26rem] w-full object-cover"
           />
         </Reveal>
 
-        <Reveal arah="right" delay={0.08} className="flex flex-col">
+        <Reveal arah="right" delay={0.08} className="founder-copy flex flex-col">
           <h3 className="text-xl font-semibold uppercase tracking-wide text-foreground">
             {founder.nama}
           </h3>
@@ -52,7 +52,7 @@ export function FounderSection() {
               loading="lazy"
               width={800}
               height={600}
-              className="h-full max-h-56 w-full rounded-xl object-cover"
+              className="team-photo-frame h-full max-h-56 w-full object-cover"
             />
             <img
               src={timEngineer}
@@ -60,7 +60,7 @@ export function FounderSection() {
               loading="lazy"
               width={800}
               height={600}
-              className="h-full max-h-56 w-full rounded-xl object-cover"
+              className="team-photo-frame h-full max-h-56 w-full object-cover"
             />
           </div>
         </Reveal>
