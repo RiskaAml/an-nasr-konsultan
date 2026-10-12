@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Compass, Mail, MapPin, Phone, TrendingUp } from "lucide-react";
 import { layanan, navigasi, perusahaan, sesiMingguan } from "@/data/perusahaan";
+import { Batik } from "./Batik";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-secondary text-primary-foreground">
-      <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-10" aria-hidden />
-      <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-accent/10 blur-3xl" />
+    <footer className="site-footer relative overflow-hidden bg-secondary text-primary-foreground">
+      <div className="footer-batik-band"><Batik motif="kawung" /></div>
+      <div className="footer-batik-field"><Batik motif="floral" /></div>
 
       <div className="relative mx-auto w-full max-w-6xl px-6 py-16 lg:px-10 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
@@ -103,7 +104,7 @@ function SesiChart() {
   const maks = Math.max(...nilai);
 
   return (
-    <div className="rounded-xl border border-primary-foreground/10 bg-primary-foreground/5 p-4">
+    <div className="footer-chart border border-primary-foreground/20 bg-primary-foreground/5 p-4">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
         <p className="flex min-w-0 items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary-foreground/70">
           <TrendingUp className="size-3.5 shrink-0 text-accent" />

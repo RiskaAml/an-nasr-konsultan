@@ -3,10 +3,11 @@ import { motion } from "motion/react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroKonstruksi from "@/assets/hero-konstruksi.jpg";
+import { Batik, BatikDivider } from "@/components/site/Batik";
 
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="site-hero relative isolate flex min-h-screen items-center justify-center overflow-hidden">
       <img
         src={heroKonstruksi}
         alt="Proyek konstruksi infrastruktur berskala besar"
@@ -15,7 +16,8 @@ export function Hero() {
         className="absolute inset-0 -z-20 size-full object-cover"
       />
       <div className="hero-overlay absolute inset-0 -z-10" />
-      <div className="blueprint-grid absolute inset-0 -z-10 opacity-20" aria-hidden />
+      <div className="hero-batik-rail hero-batik-left"><Batik motif="parang" /></div>
+      <div className="hero-batik-rail hero-batik-right"><Batik motif="kawung" /></div>
 
       <div className="mx-auto w-full max-w-4xl px-6 pb-16 pt-28 text-center lg:px-10">
         <motion.div
@@ -36,7 +38,8 @@ export function Hero() {
             Tepat Merencanakan, Tepat Mengawasi, Tepat Membangun
           </h1>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <BatikDivider className="hero-divider mt-7" />
+          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button asChild variant="hero" size="xl">
               <Link to="/kontak">
                 Konsultasi Sekarang
