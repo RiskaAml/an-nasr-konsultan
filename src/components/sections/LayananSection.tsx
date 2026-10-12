@@ -20,7 +20,7 @@ export function LayananSection({ lengkap = false }: { lengkap?: boolean }) {
                     className="grid scroll-mt-28 items-center gap-8 lg:grid-cols-2 lg:gap-12"
                   >
                     <div className={i % 2 === 1 ? "lg:order-2" : undefined}>
-                      <div className="overflow-hidden rounded-xl border border-border shadow-[var(--shadow-lift)]">
+                      <div className="batik-media-frame overflow-hidden border border-border shadow-[var(--shadow-lift)]">
                         <img
                           src={item.gambar}
                           alt={item.alt}
@@ -83,7 +83,7 @@ export function LayananSection({ lengkap = false }: { lengkap?: boolean }) {
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {layanan.map((item, i) => (
           <Reveal key={item.slug} delay={i * 0.07} className="h-full">
-            <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)]">
+            <article className="service-card flex h-full flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-soft)]">
               <img
                 src={item.gambar}
                 alt={item.alt}
@@ -92,14 +92,14 @@ export function LayananSection({ lengkap = false }: { lengkap?: boolean }) {
                 loading="lazy"
                 className="aspect-[16/10] w-full object-cover"
               />
-              <div className="flex flex-1 flex-col p-5">
+              <div className="batik-card service-card-body flex flex-1 flex-col p-6">
                 <h3 className="text-xl leading-snug text-foreground">{item.nama}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.ringkas}</p>
                 <div className="mt-auto pt-6">
                   <Button
                     asChild
                     size="pill"
-                    className="w-full bg-accent text-accent-foreground transition-none hover:bg-accent"
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                   >
                     <Link to="/layanan/$slug" params={{ slug: item.slug }}>
                       Lihat Detail

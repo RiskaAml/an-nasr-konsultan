@@ -71,7 +71,7 @@ export function TentangSection() {
                 return (
                   <div
                     key={k.judul}
-                    className="rounded-2xl border border-border bg-card p-5 text-left"
+                    className="batik-card border border-border bg-card p-5 text-left"
                   >
                     <span className="flex size-10 items-center justify-center rounded-xl bg-primary/8 text-primary">
                       <Ikon className="size-5" strokeWidth={1.6} />

@@ -35,7 +35,7 @@ export function KontakSection() {
     <section className="px-5 py-20 lg:px-8 lg:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal arah="left">
-          <div className="rounded-[2rem] border border-border bg-card p-8 shadow-[var(--shadow-soft)] lg:p-10">
+          <div className="batik-card contact-form-frame border border-border bg-card p-8 shadow-[var(--shadow-soft)] lg:p-10">
             <h2 className="text-2xl text-foreground">Kirim Pesan</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Isi formulir berikut, tim kami akan menghubungi Anda pada jam kerja.
@@ -118,7 +118,7 @@ export function KontakSection() {
         </Reveal>
 
         <Reveal arah="right" className="space-y-6">
-          <div className="rounded-[2rem] border border-border bg-surface p-8 lg:p-10">
+          <div className="batik-card border border-border bg-surface p-8 lg:p-10">
             <h2 className="text-2xl text-foreground">Informasi Kontak</h2>
             <ul className="mt-8 space-y-7">
               <li className="flex gap-4">

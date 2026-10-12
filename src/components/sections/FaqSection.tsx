@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionShell } from "@/components/site/SectionShell";
+import { Button } from "@/components/ui/button";
 
 const faq = [
   {
@@ -46,12 +47,13 @@ export function FaqSection() {
           const terbuka = aktif === i;
           return (
             <Reveal key={f.tanya} delay={i * 0.04}>
-              <div className="rounded-xl border border-border bg-card">
-                <button
+              <div className="batik-card faq-card border border-border bg-card">
+                <Button
                   type="button"
+                  variant="ghost"
                   onClick={() => setAktif(terbuka ? null : i)}
                   aria-expanded={terbuka}
-                  className="flex w-full items-center gap-4 px-5 py-4 text-left"
+                  className="flex h-auto w-full items-center gap-4 whitespace-normal px-6 py-5 text-left hover:bg-primary/5 hover:text-foreground"
                 >
                   <span className="min-w-0 flex-1 text-sm font-medium text-foreground sm:text-base">
                     {f.tanya}
@@ -63,7 +65,7 @@ export function FaqSection() {
                   >
                     {terbuka ? <Minus className="size-4" /> : <Plus className="size-4" />}
                   </span>
-                </button>
+                </Button>
                 {terbuka ? (
                   <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">
                     {f.jawab}

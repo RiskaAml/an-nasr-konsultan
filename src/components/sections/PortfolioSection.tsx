@@ -43,9 +43,10 @@ export function PortfolioSection({ filterAktif = true }: { filterAktif?: boolean
       {filterAktif ? (
         <Reveal className="mb-8 flex flex-wrap gap-2.5">
           {kategoriPortfolio.map((k) => (
-            <button
+            <Button
               key={k}
               type="button"
+              variant="ghost"
               onClick={() => gantiKategori(k)}
               className={`rounded-md border px-4 py-2 text-sm font-medium transition-colors ${
                 kategori === k
@@ -54,7 +55,7 @@ export function PortfolioSection({ filterAktif = true }: { filterAktif?: boolean
               }`}
             >
               {k}
-            </button>
+            </Button>
           ))}
         </Reveal>
       ) : null}
@@ -62,7 +63,7 @@ export function PortfolioSection({ filterAktif = true }: { filterAktif?: boolean
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tampil.map((p, i) => (
           <Reveal key={`${p.nama}-${i}`} delay={i * 0.04}>
-            <article className="group relative overflow-hidden rounded-lg border border-primary-foreground/10">
+            <article className="project-frame group relative overflow-hidden border border-primary-foreground/10">
               <img
                 src={p.gambar}
                 alt={`${p.nama} — ${p.lokasi}`}
@@ -103,9 +104,10 @@ export function PortfolioSection({ filterAktif = true }: { filterAktif?: boolean
           const n = i + 1;
           const aktif = n === halamanAman;
           return (
-            <button
+            <Button
               key={n}
               type="button"
+              variant="ghost"
               aria-current={aktif ? "page" : undefined}
               onClick={() => setHalaman(n)}
               className={`size-9 rounded-md border text-sm font-medium transition-colors ${
@@ -115,7 +117,7 @@ export function PortfolioSection({ filterAktif = true }: { filterAktif?: boolean
               }`}
             >
               {n}
-            </button>
+            </Button>
           );
         })}
 
@@ -143,14 +145,15 @@ function PagBtn({
   onClick: () => void;
 }) {
   return (
-    <button
+    <Button
       type="button"
+      variant="ghost"
       aria-label={label}
       disabled={disabled}
       onClick={onClick}
       className="flex size-9 items-center justify-center rounded-md border border-primary-foreground/20 bg-primary-foreground/5 text-primary-foreground/70 transition-colors hover:border-accent/50 hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-35"
     >
       {children}
-    </button>
+    </Button>
   );
 }

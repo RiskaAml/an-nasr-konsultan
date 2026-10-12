@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { BatikDivider } from "./Batik";
 
 export function SectionHeading({
   eyebrow,
@@ -31,6 +32,7 @@ export function SectionHeading({
       >
         {judul}
       </h2>
+      <BatikDivider className={align === "center" ? "mx-auto mt-5" : "mt-5"} />
       {deskripsi ? (
         <p
           className={`mt-4 text-base leading-relaxed ${

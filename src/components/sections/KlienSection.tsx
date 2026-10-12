@@ -6,7 +6,7 @@ function Frame() {
   return (
     <li
       aria-hidden
-      className="aspect-[3/2] w-40 shrink-0 rounded-lg border border-border bg-card shadow-[var(--shadow-soft)] sm:w-48"
+      className="batik-card client-frame aspect-[3/2] w-40 shrink-0 border border-border bg-card shadow-[var(--shadow-soft)] sm:w-48"
     />
   );
 }
