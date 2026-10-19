@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
+import { Batik } from "./Batik";
 
 export function Kontainer({
   children,
@@ -52,6 +53,7 @@ export function SectionShell({
 
         <div className="mt-12">{children}</div>
       </Kontainer>
+      {tone !== "terang" ? <div className="section-batik-band" aria-hidden="true"><Batik motif={tone === "gelap" ? "ceplok" : "kawung"} /></div> : null}
     </section>
   );
 }

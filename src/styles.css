@@ -296,6 +296,15 @@
 .site-footer { background: var(--secondary); }
 .footer-batik-band { height: 66px; background: var(--secondary); border-block: 2px solid var(--gold); }
 .footer-batik-band .batik-art { width: 100%; height: 100%; }
+.section-batik-band, .page-batik-band { position: absolute; bottom: 0; inset-inline: 0; height: 34px; overflow: hidden; pointer-events: none; border-block: 1px solid var(--frame-border); }
+.section-batik-band { background: var(--ornament-soft); }
+.section-batik-band .batik-art { opacity: .65; }
+.page-batik-band { height: 42px; }
+.section-batik-band .batik-art, .page-batik-band .batik-art { height: 100%; }
+.cta-batik-corner { position: absolute; width: 90px; height: 60px; opacity: .55; pointer-events: none; }
+.cta-corner-start { top: 8px; left: 8px; }
+.cta-corner-end { bottom: 8px; right: 8px; transform: rotate(180deg); }
+.cta-batik-frame > .relative { z-index: 1; }
 .footer-chart { border-radius: 2px; border-top: 2px solid var(--gold); }
 .design-button { transition: background-color .2s, box-shadow .2s, transform .2s; }
 .design-button.bg-primary, .design-button.bg-accent, .design-button.bg-action { box-shadow: 0 3px 0 color-mix(in oklab, var(--secondary) 20%, transparent); }
@@ -318,6 +327,7 @@
   .founder-photo-frame img { min-height: 280px; max-height: 370px; }
   .service-card-body { padding: 24px; }
   .footer-batik-band { height: 56px; }
+  .cta-batik-corner { width: 90px; height: 60px; opacity: .4; }
   .project-batik-corner { width: 96px; height: 64px; }
 }
 @media (prefers-reduced-motion: reduce) {
