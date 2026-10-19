@@ -10,7 +10,7 @@ import { useCrm } from "@/lib/crm-store";
 import { daftarPic, rupiah, statusLead, sumberLead, tanggalID, type StatusLead } from "@/data/crm";
 import { layanan } from "@/data/perusahaan";
 
-export const Route = createFileRoute("/crm/leads")({ component: HalamanLeads });
+export const Route = createFileRoute("/crm/leads")({ head: () => ({ meta: [{ title: 'Leads — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal leads CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Leads — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal leads CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: HalamanLeads });
 
 const kolomKanban = statusLead;
 

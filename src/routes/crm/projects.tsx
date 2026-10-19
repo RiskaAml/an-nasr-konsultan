@@ -10,7 +10,7 @@ import { useCrm } from "@/lib/crm-store";
 import { daftarPic, rupiah, statusProyek, tanggalID, type StatusProyek } from "@/data/crm";
 import { layanan } from "@/data/perusahaan";
 
-export const Route = createFileRoute("/crm/projects")({ component: HalamanProjects });
+export const Route = createFileRoute("/crm/projects")({ head: () => ({ meta: [{ title: 'Projects — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal projects CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Projects — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal projects CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: HalamanProjects });
 
 function HalamanProjects() {
   const { projects, clients, tambahProject } = useCrm();

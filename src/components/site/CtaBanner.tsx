@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { perusahaan } from "@/data/perusahaan";
 import { Reveal } from "./Reveal";
 import { Kontainer } from "./SectionShell";
-import { Batik, BatikDivider } from "./Batik";
 
 export function CtaBanner() {
   return (
@@ -12,7 +11,6 @@ export function CtaBanner() {
       <Kontainer>
         <Reveal>
           <div className="marble-card cta-batik-frame relative overflow-hidden border border-primary/10 px-8 py-14 shadow-[var(--shadow-lift)] lg:px-14 lg:py-16">
-            <div className="cta-batik-art"><Batik motif="floral" /></div>
 
             <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
               <div>
@@ -22,7 +20,6 @@ export function CtaBanner() {
                 <h2 className="mt-4 max-w-2xl text-3xl leading-[1.12] text-foreground sm:text-4xl lg:text-5xl">
                   Konsultasikan Kebutuhan Proyek Anda Bersama Kami
                 </h2>
-                <BatikDivider className="mt-6" />
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">

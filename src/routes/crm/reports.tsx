@@ -3,7 +3,7 @@ import { CrmShell } from "@/components/crm/CrmShell";
 import { useCrm } from "@/lib/crm-store";
 import { rupiah, statusLead, statusProyek, sumberLead } from "@/data/crm";
 
-export const Route = createFileRoute("/crm/reports")({ component: HalamanReports });
+export const Route = createFileRoute("/crm/reports")({ head: () => ({ meta: [{ title: 'Reports — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal reports CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Reports — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal reports CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: HalamanReports });
 
 function Bar({ label, nilai, maks, teks }: { label: string; nilai: number; maks: number; teks: string }) {
   return (

@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useCrm } from "@/lib/crm-store";
 import { rupiah, tanggalID } from "@/data/crm";
 
-export const Route = createFileRoute("/crm/clients")({ component: HalamanClients });
+export const Route = createFileRoute("/crm/clients")({ head: () => ({ meta: [{ title: 'Clients — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal clients CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Clients — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal clients CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: HalamanClients });
 
 function HalamanClients() {
   const { clients, projects, tambahClient } = useCrm();
