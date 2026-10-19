@@ -301,7 +301,7 @@
 .section-batik-band .batik-art { opacity: .65; }
 .page-batik-band { height: 42px; }
 .section-batik-band .batik-art, .page-batik-band .batik-art { height: 100%; }
-.cta-batik-corner { position: absolute; width: 135px; height: 90px; opacity: .55; pointer-events: none; }
+.cta-batik-corner { position: absolute; width: 90px; height: 60px; opacity: .55; pointer-events: none; }
 .cta-corner-start { top: 8px; left: 8px; }
 .cta-corner-end { bottom: 8px; right: 8px; transform: rotate(180deg); }
 .cta-batik-frame > .relative { z-index: 1; }

@@ -11,4 +11,4 @@
 - [x] Apply visible batik identity, distinctive frames, and richer palette across existing UI
 - [x] Verify existing interactions and readable desktop/mobile layouts
 - [x] Refine uploaded direction: bold Kawung/Ceplok in hero corners, selected projects, and footer; remove scattered fine ornaments
-- [ ] Add more batik accents at section edges and consultation corners; verify readability and interactions
+- [x] Add more batik accents at section edges and consultation corners; verify readability and interactions
