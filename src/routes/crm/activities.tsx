@@ -3,7 +3,7 @@ import { CrmShell, Lencana } from "@/components/crm/CrmShell";
 import { useCrm } from "@/lib/crm-store";
 import { tanggalID } from "@/data/crm";
 
-export const Route = createFileRoute("/crm/activities")({ component: HalamanActivities });
+export const Route = createFileRoute("/crm/activities")({ head: () => ({ meta: [{ title: 'Activities — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal activities CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Activities — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal activities CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: HalamanActivities });
 
 function HalamanActivities() {
   const { activities, leads, clients, ubahActivity } = useCrm();

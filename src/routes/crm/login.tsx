@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useCrm } from "@/lib/crm-store";
 
-export const Route = createFileRoute("/crm/login")({ component: LoginCrm });
+export const Route = createFileRoute("/crm/login")({ head: () => ({ meta: [{ title: 'Login Internal — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal login internal CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Login Internal — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal login internal CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: LoginCrm });
 
 function LoginCrm() {
   const { login, user, siap } = useCrm();
@@ -21,7 +21,7 @@ function LoginCrm() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-surface px-5 py-16">
-      <div className="w-full max-w-md rounded-[2rem] border border-border bg-card p-8 shadow-[var(--shadow-soft)]">
+      <div className="batik-card w-full max-w-md border border-border bg-card p-8 shadow-[var(--shadow-soft)]">
         <div className="flex items-center gap-3">
           <span className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
             <Compass className="size-5" />

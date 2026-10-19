@@ -13,7 +13,7 @@ import { CrmShell, KartuStat, Lencana } from "@/components/crm/CrmShell";
 import { useCrm } from "@/lib/crm-store";
 import { rupiah, statusLead, tanggalID } from "@/data/crm";
 
-export const Route = createFileRoute("/crm/")({ component: Dashboard });
+export const Route = createFileRoute("/crm/")({ head: () => ({ meta: [{ title: 'Dashboard — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal dashboard CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Dashboard — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal dashboard CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: Dashboard });
 
 function Dashboard() {
   const { leads, clients, projects, activities } = useCrm();

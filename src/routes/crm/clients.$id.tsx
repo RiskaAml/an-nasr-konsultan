@@ -5,7 +5,7 @@ import { TimelineAktivitas } from "@/components/crm/TimelineAktivitas";
 import { useCrm } from "@/lib/crm-store";
 import { rupiah, tanggalID } from "@/data/crm";
 
-export const Route = createFileRoute("/crm/clients/$id")({ component: DetailClient });
+export const Route = createFileRoute("/crm/clients/$id")({ head: () => ({ meta: [{ title: 'Detail Client — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal detail client CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Detail Client — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal detail client CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: DetailClient });
 
 function DetailClient() {
   const { id } = Route.useParams();

@@ -6,7 +6,7 @@ import { useCrm } from "@/lib/crm-store";
 import { rupiah, statusLead, tanggalID, type StatusLead } from "@/data/crm";
 import { TimelineAktivitas } from "@/components/crm/TimelineAktivitas";
 
-export const Route = createFileRoute("/crm/leads/$id")({ component: DetailLead });
+export const Route = createFileRoute("/crm/leads/$id")({ head: () => ({ meta: [{ title: 'Detail Lead — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal detail lead CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Detail Lead — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal detail lead CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: DetailLead });
 
 function DetailLead() {
   const { id } = Route.useParams();

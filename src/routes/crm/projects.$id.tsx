@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useCrm } from "@/lib/crm-store";
 import { rupiah, statusProyek, tanggalID, type StatusProyek } from "@/data/crm";
 
-export const Route = createFileRoute("/crm/projects/$id")({ component: DetailProject });
+export const Route = createFileRoute("/crm/projects/$id")({ head: () => ({ meta: [{ title: 'Detail Project — CRM An Nasr Konsultan' }, { name: "description", content: 'Area internal detail project CV. An Nasr Konsultan.' }, { property: "og:title", content: 'Detail Project — CRM An Nasr Konsultan' }, { property: "og:description", content: 'Area internal detail project CV. An Nasr Konsultan.' }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: DetailProject });
 
 function DetailProject() {
   const { id } = Route.useParams();
