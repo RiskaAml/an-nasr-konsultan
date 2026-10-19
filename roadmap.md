@@ -10,3 +10,4 @@
 - [x] Pagination geser kiri/kanan + nomor halaman di section proyek
 - [ ] Apply visible batik identity, distinctive frames, and richer palette across existing UI
 - [ ] Verify existing interactions and readable desktop/mobile layouts
+- [ ] Refine uploaded direction: bold Kawung/Ceplok in hero corners, selected projects, and footer; remove scattered fine ornaments
