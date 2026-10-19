@@ -6,8 +6,7 @@ import { Batik } from "./Batik";
 export function Footer() {
   return (
     <footer className="site-footer relative overflow-hidden bg-secondary text-primary-foreground">
-      <div className="footer-batik-band"><Batik motif="kawung" /></div>
-      <div className="footer-batik-field"><Batik motif="floral" /></div>
+      <div className="footer-batik-band"><Batik motif="ceplok" /></div>
 
       <div className="relative mx-auto w-full max-w-6xl px-6 py-16 lg:px-10 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">

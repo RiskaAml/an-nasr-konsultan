@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
-import { Batik, BatikDivider } from "./Batik";
 
 export function Kontainer({
   children,
@@ -39,8 +38,6 @@ export function SectionShell({
       id={id}
       className={`batik-section relative isolate flex min-h-screen scroll-mt-20 flex-col justify-center overflow-hidden py-20 lg:py-24 ${bg} ${className}`}
     >
-      <div className="section-batik-field" aria-hidden="true"><Batik motif={tone === "gelap" ? "parang" : "kawung"} /></div>
-      <div className="section-batik-border" aria-hidden="true"><Batik motif="parang" /></div>
       <Kontainer>
         <Reveal className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div><h2
@@ -49,7 +46,7 @@ export function SectionShell({
             }`}
           >
             {judul}
-          </h2><BatikDivider className="mt-5" /></div>
+          </h2></div>
           {aksi ? <div className="shrink-0">{aksi}</div> : null}
         </Reveal>
 
