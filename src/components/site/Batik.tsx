@@ -13,7 +13,7 @@ export function Batik({ motif = "kawung", className = "" }: { motif?: "kawung" |
   return (
     <svg className={`batik-art ${className}`} aria-hidden="true" focusable="false" width="100%" height="100%">
       <defs>
-        <pattern id={id} width="100" height="100" patternUnits="userSpaceOnUse">
+        <pattern id={id} width="100" height="100" patternUnits="userSpaceOnUse" patternTransform={motif === "ceplok" ? "scale(.6)" : undefined}>
           <KawungUnit />
           {motif === "ceplok" ? <path d="m0 8 8-8L0-8-8 0Zm100 0 8 8-8 8-8-8Z" fill="currentColor" /> : null}
         </pattern>
