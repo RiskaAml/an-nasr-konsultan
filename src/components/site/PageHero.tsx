@@ -1,4 +1,4 @@
-
+import { Batik } from "./Batik";
 export function PageHero({ eyebrow, judul, teks }: { eyebrow: string; judul: string; teks: string }) {
   return (
     <section className="page-hero cta-gradient relative isolate overflow-hidden px-5 pb-20 pt-36 lg:px-8 lg:pb-28 lg:pt-44">
@@ -9,6 +9,7 @@ export function PageHero({ eyebrow, judul, teks }: { eyebrow: string; judul: str
           {teks}
         </p>
       </div>
+      <div className="page-batik-band" aria-hidden="true"><Batik motif="ceplok" /></div>
     </section>
   );
 }

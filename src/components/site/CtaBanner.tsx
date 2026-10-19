@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { perusahaan } from "@/data/perusahaan";
 import { Reveal } from "./Reveal";
 import { Kontainer } from "./SectionShell";
+import { BatikCorner } from "./Batik";
 
 export function CtaBanner() {
   return (
@@ -11,7 +12,8 @@ export function CtaBanner() {
       <Kontainer>
         <Reveal>
           <div className="marble-card cta-batik-frame relative overflow-hidden border border-primary/10 px-8 py-14 shadow-[var(--shadow-lift)] lg:px-14 lg:py-16">
-
+            <BatikCorner className="cta-batik-corner cta-corner-start" />
+            <BatikCorner className="cta-batik-corner cta-corner-end" />
             <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
